@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-import SearchBar from "./Components/SearchBar";
-
 import "./App.css";
+
+import SearchBar from "./Components/SearchBar";
+import MainCard from "./Components/Card";
 
 function App() {
   const [autocomplete, setAutocomplete] = useState([]);
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
       <SearchBar autocomplete={autocomplete} />
+      <MainCard autocomplete={autocomplete} />
     </>
   );
 }
