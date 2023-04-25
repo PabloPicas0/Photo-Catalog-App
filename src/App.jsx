@@ -11,8 +11,12 @@ function App() {
   useEffect(() => {
     const rngInt = [];
 
-    for (let i = 0; i < 30; i++) {
-      rngInt.push(String(i));
+    for (let i = 0; i < 12; i++) {
+      rngInt.push({ content: [] });
+
+      for (let j = 0; j < 30; j++) {
+        rngInt[i].content.push(String(j));
+      }
     }
 
     setAutocomplete(rngInt);
@@ -20,8 +24,10 @@ function App() {
 
   return (
     <>
-      <SearchBar autocomplete={autocomplete} />
-      <MainCard autocomplete={autocomplete} />
+      <section id="catalog">
+        <SearchBar autocomplete={autocomplete} />
+        <MainCard autocomplete={autocomplete} />
+      </section>
     </>
   );
 }
