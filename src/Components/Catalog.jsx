@@ -16,11 +16,12 @@ const Catalog = (props) => {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                      Lizard
+                      {`Catalog ${idx}`}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                      across all continents except Antarctica
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel porro dolores neque soluta
+                      illo optio ea beatae recusandae veritatis, alias maiores velit id necessitatibus, culpa
+                      nihil, praesentium pariatur amet sequi.
                     </Typography>
                   </CardContent>
                 </CardActionArea>
