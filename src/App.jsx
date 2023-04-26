@@ -3,10 +3,20 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 import SearchBar from "./Components/SearchBar";
-import MainCard from "./Components/Card";
+import Catalog from "./Components/Card";
+import CatalogModal from "./Components/Modal";
 
 function App() {
-  const [autocomplete, setAutocomplete] = useState([]);
+  const [catalogData, setcatalogData] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpen = () => {
+    return setOpenModal(true);
+  };
+
+  const handleClose = () => {
+    return setOpenModal(false)
+  }
 
   useEffect(() => {
     const rngInt = [];
@@ -19,14 +29,15 @@ function App() {
       }
     }
 
-    setAutocomplete(rngInt);
+    setcatalogData(rngInt);
   }, []);
 
   return (
     <>
       <section id="catalog">
-        <SearchBar autocomplete={autocomplete} />
-        <MainCard autocomplete={autocomplete} />
+        <SearchBar catalogData={catalogData} />
+        <Catalog catalogData={catalogData} handleOpen={handleOpen} />
+        <CatalogModal openModal={openModal} handleClose={handleClose} />
       </section>
     </>
   );

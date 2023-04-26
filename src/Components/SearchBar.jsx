@@ -6,7 +6,7 @@ const SearchBar = (props) => {
       <Autocomplete
         disablePortal
         id="Autocomplete"
-        options={props.autocomplete[0]?.content}
+        options={props.catalogData[0]?.content}
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Search" />}
       />

@@ -1,14 +1,14 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
-const MainCard = (props) => {
+const Catalog = (props) => {
   return (
     <div className="wrapper">
       <Grid container spacing={2} justifyContent={"center"}>
-        {props.autocomplete.map((element, idx) => {
+        {props.catalogData.map((element, idx) => {
           return (
             <Grid item key={idx}>
               <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea>
+                <CardActionArea onClick={props.handleOpen}>
                   <CardMedia
                     component={"img"}
                     sx={{ height: 140 }}
@@ -33,4 +33,4 @@ const MainCard = (props) => {
   );
 };
 
-export default MainCard;
+export default Catalog;
