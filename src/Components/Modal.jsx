@@ -1,4 +1,4 @@
-import { Box, Grid, Modal } from "@mui/material";
+import { Box, Card, CardActionArea, CardMedia, Grid, Modal } from "@mui/material";
 
 const modalMainContent = {
   maxWidth: 1200,
@@ -14,6 +14,23 @@ const CatalogModal = (props) => {
           molestias, dolore expedita distinctio sapiente earum eos dolor debitis ipsum explicabo reiciendis
           quasi harum facere! Tempora?
         </Box>
+        <Grid container spacing={2} justifyContent={"start"}>
+          {props.modalContent.map((element, idx) => {
+            return (
+              <Grid item key={idx}>
+                <Card sx={{ maxWidth: 345 }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component={"img"}
+                      sx={{ height: 70 }}
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Big_Floppa_and_Justin_2_%28cropped%29.jpg/1200px-Big_Floppa_and_Justin_2_%28cropped%29.jpg"
+                    />
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
       </Box>
     </Modal>
   );

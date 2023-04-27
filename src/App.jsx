@@ -8,11 +8,13 @@ import CatalogModal from "./Components/Modal";
 
 function App() {
   // TODO:
-  // Add filtered state based on clicked catalog with unique id
-  const [catalogData, setcatalogData] = useState([]);
+  // Could be nice feture add padding in img to 16px on left right and mragin-top -80px
+  const [catalogData, setCatalogData] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState([])
 
   const handleOpen = (e) => {
+    setModalContent(e.content)
     return setOpenModal(true);
   };
 
@@ -24,14 +26,14 @@ function App() {
     const rngInt = [];
 
     for (let i = 0; i < 5; i++) {
-      rngInt.push({ content: [] });
+      rngInt.push({ content: [], catalog: `Catalog ${i}` });
 
       for (let j = 0; j < 30; j++) {
         rngInt[i].content.push(String(j));
       }
     }
 
-    setcatalogData(rngInt);
+    setCatalogData(rngInt);
   }, []);
 
   return (
@@ -39,7 +41,7 @@ function App() {
       <section id="catalogs">
         <SearchBar catalogData={catalogData} />
         <Catalog catalogData={catalogData} handleOpen={handleOpen} />
-        <CatalogModal openModal={openModal} handleClose={handleClose} catalogData={catalogData} />
+        <CatalogModal openModal={openModal} handleClose={handleClose} modalContent={modalContent} />
       </section>
     </>
   );

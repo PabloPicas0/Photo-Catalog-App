@@ -8,7 +8,7 @@ const Catalog = (props) => {
           return (
             <Grid item key={idx}>
               <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea onClick={props.handleOpen}>
+                <CardActionArea onClick={() => props.handleOpen(element)}>
                   <CardMedia
                     component={"img"}
                     sx={{ height: 140 }}
