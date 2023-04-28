@@ -1,8 +1,8 @@
 import { Autocomplete, TextField } from "@mui/material";
 
-const SearchBar = (props) => {
+const FilterBar = (props) => {
   return (
-    <nav id="search-bar">
+    <div id="search-bar">
       <Autocomplete
         disablePortal
         id="Autocomplete"
@@ -10,8 +10,8 @@ const SearchBar = (props) => {
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Search" />}
       />
-    </nav>
+    </div>
   );
 };
 
-export default SearchBar;
+export default FilterBar;

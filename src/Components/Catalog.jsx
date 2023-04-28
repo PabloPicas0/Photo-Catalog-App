@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "
 
 const Catalog = (props) => {
   return (
-    <div className="wrapper">
+    <div className="catalogs-wrapper">
       <Grid container spacing={2} justifyContent={"center"}>
         {props.catalogData.map((element, idx) => {
           return (
