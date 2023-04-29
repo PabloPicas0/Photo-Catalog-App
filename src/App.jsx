@@ -5,6 +5,8 @@ import "./App.css";
 import FilterBar from "./Components/filterBar";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
+import { AppBar, Toolbar } from "@mui/material";
+import Navbar from "./Components/Navbar";
 
 function App() {
   // TODO:
@@ -38,11 +40,14 @@ function App() {
 
   return (
     <>
-      <section id="catalogs">
+      <nav>
+        <Navbar />
+      </nav>
+      <main id="catalogs">
         <FilterBar catalogData={catalogData} />
         <Catalog catalogData={catalogData} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modalContent={modalContent} />
-      </section>
+      </main>
     </>
   );
 }
