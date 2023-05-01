@@ -15,7 +15,7 @@ const CatalogModal = (props) => {
           quasi harum facere! Tempora?
         </Box>
         <Grid container spacing={2} justifyContent={"start"}>
-          {props.modalContent.map((element, idx) => {
+          {props.modal.map((element, idx) => {
             return (
               <Grid item key={idx}>
                 <Card sx={{ maxWidth: 345 }}>

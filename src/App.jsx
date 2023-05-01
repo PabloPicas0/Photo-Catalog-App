@@ -9,13 +9,13 @@ import CatalogModal from "./Components/Modal";
 function App() {
   // TODO:
   // Could be nice feture add padding in img to 16px on left right and mragin-top -80px
-  const [catalogData, setCatalogData] = useState([]);
+  const [data, setData] = useState([]);
+  const [modal, setModal] = useState([]);
   const [openModal, setOpenModal] = useState(false);
-  const [modalContent, setModalContent] = useState([]);
 
   const handleOpen = (element) => {
-    console.log(catalogData);
-    setModalContent(element.content);
+    console.log(data);
+    setModal(element.content);
     return setOpenModal(true);
   };
 
@@ -35,15 +35,15 @@ function App() {
       }
     }
 
-    setCatalogData(rngInt);
+    setData(rngInt);
   }, []);
 
   return (
     <>
       <main id="catalogs">
-        <FilterBar catalogData={catalogData} />
-        <Catalog catalogData={catalogData} handleOpen={handleOpen} />
-        <CatalogModal openModal={openModal} handleClose={handleClose} modalContent={modalContent} />
+        <FilterBar data={data} />
+        <Catalog data={data} handleOpen={handleOpen} />
+        <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </main>
     </>
   );

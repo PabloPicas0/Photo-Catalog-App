@@ -4,7 +4,7 @@ const Catalog = (props) => {
   return (
     <div className="catalogs-wrapper">
       <Grid container spacing={2} justifyContent={"center"}>
-        {props.catalogData.map((element, idx) => {
+        {props.data.map((element, idx) => {
           return (
             <Grid item key={idx}>
               <Card sx={{ maxWidth: 345 }}>
