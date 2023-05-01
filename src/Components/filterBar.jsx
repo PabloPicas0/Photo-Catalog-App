@@ -1,15 +1,15 @@
-import { Autocomplete, TextField } from "@mui/material";
+import { Avatar, Chip } from "@mui/material";
 
 const FilterBar = (props) => {
   return (
     <div id="filter-bar">
-      <Autocomplete
-        disablePortal
-        id="Autocomplete"
-        options={props.catalogData[0]?.content}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="filter" />}
-      />
+      {props.catalogData.map(elem => {
+        const letter = elem.type.split("")
+        
+        return (
+          <Chip avatar={<Avatar>{letter[0]}</Avatar>} label={elem.type}/>
+        )
+      })}
     </div>
   );
 };

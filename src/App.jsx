@@ -5,7 +5,6 @@ import "./App.css";
 import FilterBar from "./Components/filterBar";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
-import Navbar from "./Components/Navbar";
 
 function App() {
   // TODO:
@@ -15,6 +14,7 @@ function App() {
   const [modalContent, setModalContent] = useState([]);
 
   const handleOpen = (element) => {
+    console.log(catalogData);
     setModalContent(element.content);
     return setOpenModal(true);
   };
@@ -25,9 +25,10 @@ function App() {
 
   useEffect(() => {
     const rngInt = [];
+    const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
-    for (let i = 0; i < 15; i++) {
-      rngInt.push({ content: [], catalog: `Catalog ${i}` });
+    for (let i = 0; i < 6; i++) {
+      rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[i] });
 
       for (let j = 0; j < 30; j++) {
         rngInt[i].content.push(String(j));
@@ -39,9 +40,6 @@ function App() {
 
   return (
     <>
-      <nav>
-        <Navbar />
-      </nav>
       <main id="catalogs">
         <FilterBar catalogData={catalogData} />
         <Catalog catalogData={catalogData} handleOpen={handleOpen} />
