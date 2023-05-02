@@ -6,6 +6,8 @@ import FilterBar from "./Components/filterBar";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 
+export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
+
 function App() {
   // TODO:
   // Could be nice feture add padding in img to 16px on left right and mragin-top -80px
@@ -25,10 +27,16 @@ function App() {
 
   useEffect(() => {
     const rngInt = [];
-    const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
-    for (let i = 0; i < 6; i++) {
-      rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[i] });
+    const rng = (min, max) => {
+      min = Math.ceil(min)
+      max = Math.floor(max)
+
+      return Math.floor(Math.random() * (max - min) + min)
+    }
+
+    for (let i = 0; i < 40; i++) {
+      rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[rng(0, 5)] });
 
       for (let j = 0; j < 30; j++) {
         rngInt[i].content.push(String(j));
@@ -40,11 +48,11 @@ function App() {
 
   return (
     <>
-      <main id="catalogs">
+      <section className="catalogs">
         <FilterBar data={data} />
         <Catalog data={data} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
-      </main>
+      </section>
     </>
   );
 }

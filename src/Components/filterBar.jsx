@@ -1,13 +1,14 @@
 import { Avatar, Chip } from "@mui/material";
+import { types } from "../App";
 
 const FilterBar = (props) => {
   return (
-    <div id="filter-bar">
-      {props.data.map((elem, idx) => {
-        const letter = elem.type.split("")
+    <div className="filter-bar">
+      {types.map((elem, idx) => {
+        const letter = elem.split("")
 
         return (
-          <Chip key={idx} avatar={<Avatar>{letter[0]}</Avatar>} label={elem.type}/>
+          <Chip key={idx} avatar={<Avatar>{letter[0]}</Avatar>} label={elem}/>
         )
       })}
     </div>
