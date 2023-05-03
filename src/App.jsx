@@ -10,16 +10,30 @@ function App() {
   // TODO:
   // Could be nice feture add padding in img to 16px on left right and mragin-top -80px
   const [data, setData] = useState([]);
+  const [catalogs, setCatalogs] = useState([]);
   const [modal, setModal] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [filter, setFilter] = useState("");
 
   const handleOpen = (element) => {
-    setModal(element.content);
-    return setOpenModal(true);
+    setModal(element.content); // element passed is object from each catalog that fire whe user click
+    setOpenModal(true);
   };
 
   const handleClose = () => {
-    return setOpenModal(false);
+    setOpenModal(false);
+  };
+
+  const handleFilter = (type) => {
+    // TODO:
+    // Set filter type based on parent id
+    setFilter((prev) => {
+      if (prev === "") {
+        return type;
+      }
+
+      return "";
+    });
   };
 
   useEffect(() => {
@@ -27,14 +41,14 @@ function App() {
     const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
     const rng = (min, max) => {
-      min = Math.ceil(min)
-      max = Math.floor(max)
+      min = Math.ceil(min);
+      max = Math.floor(max);
 
-      return Math.floor(Math.random() * (max - min) + min)
-    }
+      return Math.floor(Math.random() * (max - min) + min);
+    };
 
-    for (let i = 0; i < 10; i++) {
-      rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[rng(0, 5)] });
+    for (let i = 0; i < 24; i++) {
+      rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[rng(0, 6)] });
 
       for (let j = 0; j < 30; j++) {
         rngInt[i].content.push(String(j));
@@ -42,13 +56,25 @@ function App() {
     }
 
     setData(rngInt);
+    setCatalogs(rngInt);
   }, []);
+
+  useEffect(() => {
+    // This if statement prevents from runing the code on first app mount 
+    if (data.length !== 0) {
+      setCatalogs((prev) => {
+        const newCatalogs = filter === "" ? data : prev.filter((elem) => elem.type === filter);
+
+        return newCatalogs;
+      });
+    }
+  }, [filter]);
 
   return (
     <>
       <section className="catalogs">
-        <FilterBar />
-        <Catalog data={data} handleOpen={handleOpen} />
+        <FilterBar handleFilter={handleFilter} />
+        <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
     </>
