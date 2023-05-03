@@ -7,10 +7,11 @@ const FilterBar = (props) => {
     <div className="filter-bar">
       <div className="center">
         <Chip
+        className="Hats"
           avatar={<Avatar>{"H"}</Avatar>}
           label={"Hats"}
           sx={borderRadius}
-          onClick={() => props.handleFilter("Hats")}
+          onClick={(e) => props.handleFilter("Hats")}
         />
       </div>
       <div className="center">

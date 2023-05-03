@@ -1,5 +1,7 @@
 import { Box, Card, CardActionArea, CardMedia, Grid, Modal } from "@mui/material";
 
+import { exampleImage } from "../App";
+
 const modalMainContent = {
   maxWidth: 1200,
   margin: "0 auto",
@@ -23,7 +25,7 @@ const CatalogModal = (props) => {
                     <CardMedia
                       component={"img"}
                       sx={{ height: 70 }}
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Big_Floppa_and_Justin_2_%28cropped%29.jpg/1200px-Big_Floppa_and_Justin_2_%28cropped%29.jpg"
+                      src={exampleImage}
                     />
                   </CardActionArea>
                 </Card>

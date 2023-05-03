@@ -6,9 +6,9 @@ import FilterBar from "./Components/filterBar";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 
+export const exampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Big_Floppa_and_Justin_2_%28cropped%29.jpg/1200px-Big_Floppa_and_Justin_2_%28cropped%29.jpg"
+
 function App() {
-  // TODO:
-  // Could be nice feture add padding in img to 16px on left right and mragin-top -80px
   const [data, setData] = useState([]);
   const [catalogs, setCatalogs] = useState([]);
   const [modal, setModal] = useState([]);
@@ -25,14 +25,12 @@ function App() {
   };
 
   const handleFilter = (type) => {
-    // TODO:
-    // Set filter type based on parent id
     setFilter((prev) => {
-      if (prev === "") {
-        return type;
+      if (prev === type) {
+        return "";
       }
 
-      return "";
+      return type;
     });
   };
 
@@ -60,10 +58,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // This if statement prevents from runing the code on first app mount 
+    // This if statement prevents from runing the code on first app mount
     if (data.length !== 0) {
       setCatalogs((prev) => {
-        const newCatalogs = filter === "" ? data : prev.filter((elem) => elem.type === filter);
+        const newCatalogs = filter === "" ? data : data.filter((elem) => elem.type === filter);
 
         return newCatalogs;
       });
