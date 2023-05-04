@@ -49,7 +49,7 @@ function App() {
       rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[rng(0, 6)] });
 
       for (let j = 0; j < 30; j++) {
-        rngInt[i].content.push(String(j));
+        rngInt[i].content.push(exampleImage);
       }
     }
 

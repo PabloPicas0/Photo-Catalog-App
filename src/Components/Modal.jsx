@@ -1,6 +1,7 @@
-import { Box, Card, CardActionArea, CardMedia, Grid, Modal } from "@mui/material";
+import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@mui/material";
 
 import { exampleImage } from "../App";
+import { useState } from "react";
 
 const modalMainContent = {
   maxWidth: 1200,
@@ -8,28 +9,34 @@ const modalMainContent = {
 };
 
 const CatalogModal = (props) => {
+  const [mainImage, setMainImage] = useState(props.modal[0]);
+
+  const handleImage = (element) => {
+    setMainImage(element);
+  };
+
   return (
-    <Modal open={props.openModal} onClose={props.handleClose}>
+    <Modal open={props.openModal} onClose={props.handleClose} sx={{overflowY: "scroll"}}>
       <Box sx={modalMainContent}>
-        <Box>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quos? Adipisci nam corrupti, cumque,
-          molestias, dolore expedita distinctio sapiente earum eos dolor debitis ipsum explicabo reiciendis
-          quasi harum facere! Tempora?
-        </Box>
-        <Grid container spacing={2} justifyContent={"start"}>
+        <Fade in={props.openModal}>
+          <Box>
+            <Card sx={{ maxWidth: 645, margin: "0 auto" }}>
+              <CardMedia component={"img"} sx={{ height: 400 }} src={exampleImage} />
+            </Card>
+          </Box>
+        </Fade>
+        <Grid container spacing={2} justifyContent={"start"} sx={{ margin: "5px" }}>
           {props.modal.map((element, idx) => {
             return (
-              <Grid item key={idx}>
-                <Card sx={{ maxWidth: 345 }}>
-                  <CardActionArea>
-                    <CardMedia
-                      component={"img"}
-                      sx={{ height: 70 }}
-                      src={exampleImage}
-                    />
-                  </CardActionArea>
-                </Card>
-              </Grid>
+              <Grow key={idx} in={props.openModal} style={{ transformOrigin: "0 0 0" }}>
+                <Grid item>
+                  <Card sx={{ maxWidth: 345 }}>
+                    <CardActionArea onClick={() => handleImage(element)}>
+                      <CardMedia component={"img"} sx={{ height: 70 }} src={element} />
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              </Grow>
             );
           })}
         </Grid>
