@@ -1,7 +1,8 @@
 import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@mui/material";
 
-import { exampleImage } from "../App";
 import { useState } from "react";
+
+import { exampleImage } from "../App";
 
 const modalMainContent = {
   maxWidth: 1200,
@@ -16,16 +17,19 @@ const CatalogModal = (props) => {
   };
 
   return (
-    <Modal open={props.openModal} onClose={props.handleClose} sx={{overflowY: "scroll"}}>
+    <Modal
+      open={props.openModal}
+      onClose={props.handleClose}
+      sx={{ overflowY: "scroll", overflowX: "hidden" }}>
       <Box sx={modalMainContent}>
         <Fade in={props.openModal}>
-          <Box>
+          <Box sx={{ padding: "5px" }}>
             <Card sx={{ maxWidth: 645, margin: "0 auto" }}>
               <CardMedia component={"img"} sx={{ height: 400 }} src={exampleImage} />
             </Card>
           </Box>
         </Fade>
-        <Grid container spacing={2} justifyContent={"start"} sx={{ margin: "5px" }}>
+        <Grid container spacing={2} sx={{ padding: "15px 5px 5px 40px" }}>
           {props.modal.map((element, idx) => {
             return (
               <Grow key={idx} in={props.openModal} style={{ transformOrigin: "0 0 0" }}>
