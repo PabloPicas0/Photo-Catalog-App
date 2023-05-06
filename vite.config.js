@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/Photo-Catalog-App/",
   server: {
     host: "localhost",
     port: 3000,

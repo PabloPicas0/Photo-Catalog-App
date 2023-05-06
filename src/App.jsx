@@ -6,14 +6,12 @@ import FilterBar from "./Components/filterBar";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 
-export const exampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Big_Floppa_and_Justin_2_%28cropped%29.jpg/1200px-Big_Floppa_and_Justin_2_%28cropped%29.jpg"
-
 function App() {
   const [data, setData] = useState([]);
   const [catalogs, setCatalogs] = useState([]);
   const [modal, setModal] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
   const [filter, setFilter] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
   const handleOpen = (element) => {
     setModal(element.content); // element passed is object from each catalog that fire whe user click
@@ -46,15 +44,21 @@ function App() {
     };
 
     for (let i = 0; i < 24; i++) {
-      rngInt.push({ content: [], catalog: `Catalog ${i}`, type: types[rng(0, 6)] });
+      rngInt.push({
+        image: `https://picsum.photos/200/300?random=${i}`,
+        content: [],
+        catalog: `Catalog ${i}`,
+        type: types[rng(0, 6)],
+      });
 
       for (let j = 0; j < 30; j++) {
-        rngInt[i].content.push(exampleImage);
+        rngInt[i].content.push(`https://picsum.photos/200/300?random=${Math.random()}`);
       }
     }
 
     setData(rngInt);
     setCatalogs(rngInt);
+    console.log(rngInt)
   }, []);
 
   useEffect(() => {

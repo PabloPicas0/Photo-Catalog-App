@@ -1,4 +1,4 @@
-import { Avatar, Chip, useThemeProps } from "@mui/material";
+import { Avatar, Chip } from "@mui/material";
 
 const FilterBar = (props) => {
   const borderRadius = { borderRadius: "5px" }
@@ -11,7 +11,7 @@ const FilterBar = (props) => {
           avatar={<Avatar>{"H"}</Avatar>}
           label={"Hats"}
           sx={borderRadius}
-          onClick={(e) => props.handleFilter("Hats")}
+          onClick={() => props.handleFilter("Hats")}
         />
       </div>
       <div className="center">

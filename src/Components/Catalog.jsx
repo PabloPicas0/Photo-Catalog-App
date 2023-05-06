@@ -1,7 +1,5 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
-import { exampleImage } from "../App";
-
 const Catalog = (props) => {
   return (
     <div className="catalogs-wrapper">
@@ -14,7 +12,7 @@ const Catalog = (props) => {
                   <CardMedia
                     component={"img"}
                     sx={{ height: 140 }}
-                    src={exampleImage}
+                    src={element.image}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

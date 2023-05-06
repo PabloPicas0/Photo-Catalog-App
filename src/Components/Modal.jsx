@@ -2,8 +2,6 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
-import { exampleImage } from "../App";
-
 const modalMainContent = {
   maxWidth: 1200,
   margin: "0 auto",
@@ -11,7 +9,7 @@ const modalMainContent = {
 
 const CatalogModal = (props) => {
   const [mainImage, setMainImage] = useState(props.modal[0]);
-
+  console.log(props.modal[0])
   const handleImage = (element) => {
     setMainImage(element);
   };
@@ -25,7 +23,7 @@ const CatalogModal = (props) => {
         <Fade in={props.openModal}>
           <Box sx={{ padding: "5px" }}>
             <Card sx={{ maxWidth: 645, margin: "0 auto" }}>
-              <CardMedia component={"img"} sx={{ height: 400 }} src={exampleImage} />
+              <CardMedia component={"img"} sx={{ height: 400 }} src={mainImage} />
             </Card>
           </Box>
         </Fade>
