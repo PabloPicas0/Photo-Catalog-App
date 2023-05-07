@@ -1,55 +1,27 @@
 import { Avatar, Chip } from "@mui/material";
 
-const FilterBar = (props) => {
+import { types } from "../App";
+
+const Filters = (props) => {
   const borderRadius = { borderRadius: "5px" }
 
   return (
     <div className="filter-bar">
-      <div className="center">
-        <Chip
-        className="Hats"
-          avatar={<Avatar>{"H"}</Avatar>}
-          label={"Hats"}
-          sx={borderRadius}
-          onClick={() => props.handleFilter("Hats")}
-        />
-      </div>
-      <div className="center">
-        <Chip
-          avatar={<Avatar>{"G"}</Avatar>}
-          label={"Glasses"}
-          sx={borderRadius}
-          onClick={() => props.handleFilter("Glasses")}
-        />
-        <Chip
-          avatar={<Avatar>{"J"}</Avatar>}
-          label={"Jacket"}
-          sx={borderRadius}
-          onClick={() => props.handleFilter("Jacket")}
-        />
-      </div>
-      <div className="center">
-        <Chip
-          avatar={<Avatar>{"G"}</Avatar>}
-          label={"Gloves"}
-          sx={borderRadius}
-          onClick={() => props.handleFilter("Gloves")}
-        />
-        <Chip
-          avatar={<Avatar>{"P"}</Avatar>}
-          label={"Pants"}
-          sx={borderRadius}
-          onClick={() => props.handleFilter("Pants")}
-        />
-        <Chip
-          avatar={<Avatar>{"S"}</Avatar>}
-          label={"Shoes"}
-          sx={borderRadius}
-          onClick={() => props.handleFilter("Shoes")}
-        />
-      </div>
+      {types.map((elem, idx) => {
+        const letter = elem.split("");
+
+        return (
+          <Chip
+            key={idx}
+            avatar={<Avatar>{letter[0]}</Avatar>}
+            label={elem}
+            sx={borderRadius}
+            onClick={() => props.handleFilter(elem)}
+          />
+        );
+      })}
     </div>
   );
 };
 
-export default FilterBar;
+export default Filters;

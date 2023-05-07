@@ -1,12 +1,8 @@
 .filter-bar {
-  padding: 10px 15px;
-}
-
-.center {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 5px;
+  gap: 25px;
+  padding: 10px 15px;
 }
 
 .catalogs {

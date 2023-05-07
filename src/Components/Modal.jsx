@@ -9,7 +9,7 @@ const modalMainContent = {
 
 const CatalogModal = (props) => {
   const [mainImage, setMainImage] = useState(props.modal[0]);
-  console.log(props.modal[0])
+
   const handleImage = (element) => {
     setMainImage(element);
   };

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 
-import FilterBar from "./Components/filterBar";
+import Filters from "./Components/filterBar";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
+
+export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
 function App() {
   const [data, setData] = useState([]);
@@ -34,7 +36,6 @@ function App() {
 
   useEffect(() => {
     const rngInt = [];
-    const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
     const rng = (min, max) => {
       min = Math.ceil(min);
@@ -43,7 +44,7 @@ function App() {
       return Math.floor(Math.random() * (max - min) + min);
     };
 
-    for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < 10; i++) {
       rngInt.push({
         image: `https://picsum.photos/200/300?random=${i}`,
         content: [],
@@ -58,7 +59,6 @@ function App() {
 
     setData(rngInt);
     setCatalogs(rngInt);
-    console.log(rngInt)
   }, []);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ function App() {
   return (
     <>
       <section className="catalogs">
-        <FilterBar handleFilter={handleFilter} />
+        <Filters handleFilter={handleFilter} />
         <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
