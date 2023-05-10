@@ -18,7 +18,7 @@ const CatalogModal = (props) => {
     <Modal
       open={props.openModal}
       onClose={props.handleClose}
-      sx={{ overflowY: "scroll", overflowX: "hidden" }}>
+      sx={{ overflowY: "scroll", overflowX: "hidden", backdropFilter: {sm: "blur(3px)", xs: "none"} }}>
       <Box sx={modalMainContent}>
         <Fade in={props.openModal}>
           <Box sx={{ padding: "5px" }}>
