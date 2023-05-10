@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 
-import Filters from "./Components/filterBar";
+import Filters from "./Components/filters";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
+import Navbar from "./Components/Navbar";
 
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
@@ -74,11 +75,24 @@ function App() {
 
   return (
     <>
-      <section className="catalogs">
-        <Filters handleFilter={handleFilter} />
-        <Catalog catalogs={catalogs} handleOpen={handleOpen} />
-        <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
-      </section>
+      <Navbar />
+        <section
+          id="about"
+          className="catalogs"
+          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
+        </section>
+        <section id="catalogs" className="catalogs">
+          <Filters handleFilter={handleFilter} />
+          <Catalog catalogs={catalogs} handleOpen={handleOpen} />
+          <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
+        </section>
+        <section
+          id="contact"
+          className="catalogs"
+          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
+        </section>
     </>
   );
 }

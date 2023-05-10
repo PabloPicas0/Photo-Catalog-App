@@ -3,15 +3,17 @@
   justify-content: center;
   gap: 25px;
   padding: 10px 15px;
+  z-index: 1337;
 }
 
 .catalogs {
+  min-height: 100vh;
   max-width: 1700px;
   margin: 0 auto;
 }
 
 .catalogs-wrapper {
-  padding: 20px;
+  padding: 100px 20px 20px 20px;
 }
 
 @media (max-width: 1280px) {
