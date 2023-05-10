@@ -11,7 +11,7 @@ const Filters = (props) => {
         const letter = elem.split("");
 
         return (
-          <Grid item>
+          <Grid item key={idx}>
             <Chip
               key={idx}
               avatar={<Avatar>{letter[0]}</Avatar>}
