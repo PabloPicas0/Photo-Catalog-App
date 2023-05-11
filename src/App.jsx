@@ -75,7 +75,6 @@ function App() {
 
   return (
     <>
-    {/* Navbar have mobile overflow, Filter same */}
       <Navbar />
         <section
           id="about"

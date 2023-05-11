@@ -19,9 +19,9 @@ const Navbar = () => {
   return (
     <AppBar component={"nav"} sx={{ backgroundColor: "transparent", backdropFilter: "blur(2px)" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Typography variant="h6" component={"div"}>
+        <Link variant="h6" href="/" underline="none" color={"white"}>
           LOGO
-        </Typography>
+        </Link>
 
         <Breadcrumbs aria-label="navigation" separator="" sx={{ display: { sm: "flex", xs: "none" } }}>
           {links.map((link) => {
