@@ -6,7 +6,7 @@ import { appBarIcon, appBarLinks, appBarStyle } from "../styles/styledComponents
 import { useState } from "react";
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [openNav, setOpenNav] = useState(null);
 
   const links = ["About", "Catalogs", "Contact"];
@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar component={"nav"} sx={appBarStyle}>
+    <AppBar component={"nav"} sx={appBarStyle} ref={el => props.multiRef.current[1] = el}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Link variant="h6" href="/" underline="none" color={"white"}>
           LOGO
