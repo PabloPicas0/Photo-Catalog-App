@@ -20,7 +20,7 @@ const Navbar = (props) => {
   };
 
   return (
-    <AppBar component={"nav"} sx={appBarStyle} ref={el => props.multiRef.current[1] = el}>
+    <AppBar component={"nav"} sx={appBarStyle}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Link variant="h6" href="/" underline="none" color={"white"}>
           LOGO

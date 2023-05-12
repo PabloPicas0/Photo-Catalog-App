@@ -18,8 +18,6 @@ function App() {
   const [filter, setFilter] = useState("");
   const [openModal, setOpenModal] = useState(false);
 
-  const multiRef = useRef([])
-
   const handleOpen = (element) => {
     setModal(element.content); // element passed is object from each catalog that fire whe user click
     setOpenModal(true);
@@ -64,7 +62,6 @@ function App() {
 
     setData(rngInt);
     setCatalogs(rngInt);
-    console.log(multiRef)
   }, []);
 
   useEffect(() => {
@@ -80,14 +77,14 @@ function App() {
 
   return (
     <>
-      <Navbar multiRef={multiRef} />
+      <Navbar />
 
-      <section ref={(el) => (multiRef.current[0] = el)} id="about" className="catalogs" style={aboutSection}>
+      <section id="about" className="catalogs" style={aboutSection}>
         Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
       </section>
 
       <section id="catalogs" className="catalogs">
-        <Filters handleFilter={handleFilter} multiRef={multiRef} />
+        <Filters handleFilter={handleFilter} />
         <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
