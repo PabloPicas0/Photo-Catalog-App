@@ -2,9 +2,9 @@ import { Avatar, Chip, Grid } from "@mui/material";
 
 import { types } from "../App";
 
-const Filters = (props) => {
-  const borderRadius = { borderRadius: "5px", border: "1px solid white" };
+import { filterBorderRadius } from "../styles/styledComponents";
 
+const Filters = (props) => {
   return (
     <Grid container spacing={2} justifyContent={"center"}>
       {types.map((elem, idx) => {
@@ -16,7 +16,7 @@ const Filters = (props) => {
               key={idx}
               avatar={<Avatar>{letter[0]}</Avatar>}
               label={elem}
-              sx={borderRadius}
+              sx={filterBorderRadius}
               color="warning"
               onClick={() => props.handleFilter(elem)}
             />

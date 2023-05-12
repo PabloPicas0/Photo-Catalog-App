@@ -2,6 +2,8 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
+import { modal, modalCard } from "../styles/styledComponents";
+
 const modalMainContent = {
   maxWidth: 1200,
   margin: "0 auto",
@@ -18,11 +20,11 @@ const CatalogModal = (props) => {
     <Modal
       open={props.openModal}
       onClose={props.handleClose}
-      sx={{ overflowY: "scroll", overflowX: "hidden", backdropFilter: {sm: "blur(3px)", xs: "none"} }}>
+      sx={modal}>
       <Box sx={modalMainContent}>
         <Fade in={props.openModal}>
           <Box sx={{ padding: "5px" }}>
-            <Card sx={{ maxWidth: 645, margin: "0 auto" }}>
+            <Card sx={modalCard}>
               <CardMedia component={"img"} sx={{ height: 400 }} src={mainImage} />
             </Card>
           </Box>

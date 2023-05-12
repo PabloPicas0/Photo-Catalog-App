@@ -7,6 +7,8 @@ import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
 
+import { aboutSection, contactSection } from "./styles/styledComponents";
+
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
 function App() {
@@ -79,7 +81,7 @@ function App() {
         <section
           id="about"
           className="catalogs"
-          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          style={aboutSection}>
           Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
         </section>
         <section id="catalogs" className="catalogs">
@@ -90,7 +92,7 @@ function App() {
         <section
           id="contact"
           className="catalogs"
-          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          style={contactSection}>
           Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
         </section>
     </>

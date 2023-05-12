@@ -1,7 +1,10 @@
 import { MenuOutlined } from "@mui/icons-material";
-import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Typography, Menu, MenuItem } from "@mui/material";
+import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Menu, MenuItem } from "@mui/material";
+
+import { appBarIcon, appBarLinks, appBarStyle } from "../styles/styledComponents";
 
 import { useState } from "react";
+
 
 const Navbar = () => {
   const [openNav, setOpenNav] = useState(null);
@@ -17,13 +20,13 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar component={"nav"} sx={{ backgroundColor: "transparent", backdropFilter: "blur(2px)" }}>
+    <AppBar component={"nav"} sx={appBarStyle}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Link variant="h6" href="/" underline="none" color={"white"}>
           LOGO
         </Link>
 
-        <Breadcrumbs aria-label="navigation" separator="" sx={{ display: { sm: "flex", xs: "none" } }}>
+        <Breadcrumbs aria-label="navigation" separator="" sx={appBarLinks}>
           {links.map((link) => {
             const anhor = link.toLowerCase();
 
@@ -39,7 +42,7 @@ const Navbar = () => {
           size="large"
           aria-label="open-navigation"
           onClick={handleOpenNav}
-          sx={{ color: "rgba(255, 255, 255, 0.87);", display: { xs: "inline-flex", sm: "none" } }}>
+          sx={appBarIcon}>
           <MenuOutlined />
         </IconButton>
 
