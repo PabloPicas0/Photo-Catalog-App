@@ -31,4 +31,6 @@ body {
   background-color: var(--body-fallback-background);
   background-image: var(--body-background);
   background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
 }
