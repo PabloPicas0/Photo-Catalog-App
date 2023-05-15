@@ -21,6 +21,7 @@ const CatalogModal = (props) => {
       open={props.openModal}
       onClose={props.handleClose}
       sx={modal}>
+
       <Box sx={modalMainContent}>
         <Fade in={props.openModal}>
           <Box sx={{ padding: "5px" }}>
@@ -29,6 +30,7 @@ const CatalogModal = (props) => {
             </Card>
           </Box>
         </Fade>
+        
         <Grid container spacing={2} sx={{ padding: "15px 5px 5px 40px" }}>
           {props.modal.map((element, idx) => {
             return (
@@ -45,6 +47,7 @@ const CatalogModal = (props) => {
           })}
         </Grid>
       </Box>
+
     </Modal>
   );
 };

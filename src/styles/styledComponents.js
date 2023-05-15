@@ -8,8 +8,12 @@ export const modal = { overflowY: "scroll", overflowX: "hidden", backdropFilter:
 
 export const modalCard = { maxWidth: 645, margin: "0 auto" };
 
-export const appBarStyle = { backgroundColor: "transparent", backdropFilter: "blur(2px)" };
+export const appBarStyle = { backgroundColor: "transparent", padding: "20px 6vw", boxShadow: "none", textTransform: "uppercase" };
 
 export const appBarLinks = { display: { sm: "flex", xs: "none" } };
 
 export const appBarIcon = { color: "rgba(255, 255, 255, 0.87);", display: { xs: "inline-flex", sm: "none" } };
+
+export const mediaBarStyle = {position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 1337, marginBottom: "50px", paddingLeft: "5%", boxShadow: "none"}
+
+export const mediaBarLinksStyle = {color: "rgba(255, 255, 255, 0.87)"}

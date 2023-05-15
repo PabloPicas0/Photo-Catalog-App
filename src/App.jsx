@@ -6,6 +6,7 @@ import Filters from "./Components/filters";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
+import MediaBar from "./Components/MediaBar";
 
 import { aboutSection, contactSection } from "./styles/styledComponents";
 
@@ -92,6 +93,8 @@ function App() {
       <section id="contact" className="catalogs" style={contactSection}>
         Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
       </section>
+
+      <MediaBar />
     </>
   );
 }

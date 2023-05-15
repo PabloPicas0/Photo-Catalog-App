@@ -7,7 +7,7 @@ const Catalog = (props) => {
         {props.catalogs.map((element, idx) => {
           return (
             <Grid item key={idx}>
-              <Card sx={{ maxWidth: 345 }}>
+              <Card sx={{ maxWidth: 325 }}>
                 <CardActionArea onClick={() => props.handleOpen(element)}>
                   <CardMedia
                     component={"img"}
