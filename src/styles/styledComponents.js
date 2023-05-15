@@ -28,7 +28,7 @@ export const mediaBarStyle = {
   bottom: 0,
   left: 0,
   right: 0,
-  zIndex: 1337,
+  zIndex: 1100,
   marginBottom: "50px",
   paddingLeft: "5%",
   boxShadow: "none",
