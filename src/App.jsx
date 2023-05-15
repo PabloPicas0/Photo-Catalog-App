@@ -50,14 +50,14 @@ function App() {
 
     for (let i = 0; i < 10; i++) {
       rngInt.push({
-        image: `https://picsum.photos/200/300?random=${i}`,
+        image: `https://picsum.photos/600/600?random=${i}`,
         content: [],
         catalog: `Catalog ${i}`,
         type: types[rng(0, 6)],
       });
 
       for (let j = 0; j < 30; j++) {
-        rngInt[i].content.push(`https://picsum.photos/200/300?random=${Math.random()}`);
+        rngInt[i].content.push(`https://picsum.photos/600/600?random=${Math.random()}`);
       }
     }
 
