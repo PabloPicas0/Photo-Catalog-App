@@ -23,6 +23,27 @@
   color: #ed6c02 !important;
 }
 
+.side-navigation {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-number {
+  margin: 0px 21px 0px 45px;
+}
+
+.div-block {
+  width: 2px;
+  height: 50px;
+  background-color: #fff;
+  transform: translate(7px, 0);
+}
+
 @media (max-width: 1280px) {
   #catalogs {
     flex-direction: column;

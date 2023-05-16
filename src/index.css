@@ -32,3 +32,8 @@ body {
   background-image: var(--body-background);
   background-attachment: fixed;
 }
+
+span {
+  font-size: 14px;
+  font-family: sans-serif, Arial, Helvetica;
+}

@@ -36,3 +36,12 @@ export const mediaBarStyle = {
 };
 
 export const mediaBarLinksStyle = { color: "rgba(255, 255, 255, 0.87)" };
+
+export const sideNavLink = {
+  display: "block",
+  borderRadius: "50%",
+  border: "1px solid #fff",
+  backgroundColor: "transparent",
+  margin: "10px 0px",
+  padding: "5px"
+}
