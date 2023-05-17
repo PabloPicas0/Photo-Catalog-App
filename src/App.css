@@ -31,10 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.page-number {
-  margin: 0px 21px 0px 45px;
+  z-index: 1100;
 }
 
 .div-block {

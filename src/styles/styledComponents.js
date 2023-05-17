@@ -43,5 +43,14 @@ export const sideNavLink = {
   border: "1px solid #fff",
   backgroundColor: "transparent",
   margin: "10px 0px",
-  padding: "5px"
+  padding: "5px",
+};
+
+export const sideNavigation = {
+  display: { xs: "none", lg: "flex" },
+};
+
+export const pageNumber = {
+  margin: "0px 21px 0px 45px",
+  color: "#fff"
 }

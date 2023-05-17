@@ -1,7 +1,14 @@
 import { MenuOutlined } from "@mui/icons-material";
-import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Menu, MenuItem } from "@mui/material";
+import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Menu, MenuItem, Box } from "@mui/material";
 
-import { appBarIcon, appBarLinks, appBarStyle, sideNavLink } from "../styles/styledComponents";
+import {
+  appBarIcon,
+  appBarLinks,
+  appBarStyle,
+  pageNumber,
+  sideNavLink,
+  sideNavigation,
+} from "../styles/styledComponents";
 
 import { useState } from "react";
 
@@ -58,23 +65,28 @@ const Navbar = (props) => {
         </Toolbar>
       </AppBar>
 
-      <nav className="side-navigation">
-        <div className="page-number">
+      <Box component={"nav"} className="side-navigation" sx={sideNavigation}>
+        <Link underline="none" sx={pageNumber} href="#contact">
           <span>01</span>
           <div className="div-block"></div>
           <span>03</span>
-        </div>
+        </Link>
 
         <div>
           {links.map((link) => {
             const anhor = link.toLowerCase();
 
             return (
-              <Link textAlign={"center"} underline="none" href={`#${anhor}`} sx={sideNavLink} key={link}></Link>
+              <Link
+                textAlign={"center"}
+                underline="none"
+                href={`#${anhor}`}
+                sx={sideNavLink}
+                key={link}></Link>
             );
           })}
         </div>
-      </nav>
+      </Box>
     </>
   );
 };
