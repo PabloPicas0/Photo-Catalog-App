@@ -6,7 +6,7 @@ import { filterBorderRadius } from "../styles/styledComponents";
 
 const Filters = (props) => {
   return (
-    <Grid container spacing={2} justifyContent={"center"}>
+    <Grid container spacing={2} justifyContent={"center"} sx={{margin: "0px"}}>
       {types.map((elem, idx) => {
         const letter = elem.split("");
 
