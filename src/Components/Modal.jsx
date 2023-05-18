@@ -2,14 +2,11 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
-import { modal, modalCard } from "../styles/styledComponents";
-
-const modalMainContent = {
-  maxWidth: 1200,
-  margin: "0 auto",
-};
+import { modal, modalCard, modalMainContent } from "../styles/styledComponents";
 
 const CatalogModal = (props) => {
+  const { modal, openModal, handleClose } = props;
+
   const [mainImage, setMainImage] = useState(props.modal[0]);
 
   const handleImage = (element) => {
@@ -17,24 +14,20 @@ const CatalogModal = (props) => {
   };
 
   return (
-    <Modal
-      open={props.openModal}
-      onClose={props.handleClose}
-      sx={modal}>
-
+    <Modal open={openModal} onClose={handleClose} sx={modal}>
       <Box sx={modalMainContent}>
-        <Fade in={props.openModal}>
+        <Fade in={openModal}>
           <Box sx={{ padding: "5px" }}>
             <Card sx={modalCard}>
               <CardMedia component={"img"} sx={{ height: 400 }} src={mainImage} />
             </Card>
           </Box>
         </Fade>
-        
+
         <Grid container spacing={2} sx={{ padding: "15px 5px 5px 40px" }}>
-          {props.modal.map((element, idx) => {
+          {modal.map((element, idx) => {
             return (
-              <Grow key={idx} in={props.openModal} style={{ transformOrigin: "0 0 0" }}>
+              <Grow key={idx} in={openModal} style={{ transformOrigin: "0 0 0" }}>
                 <Grid item>
                   <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea onClick={() => handleImage(element)}>
@@ -47,7 +40,6 @@ const CatalogModal = (props) => {
           })}
         </Grid>
       </Box>
-
     </Modal>
   );
 };

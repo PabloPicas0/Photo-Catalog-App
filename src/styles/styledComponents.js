@@ -1,3 +1,8 @@
+export const modalMainContent = {
+  maxWidth: 1200,
+  margin: "0 auto",
+};
+
 export const aboutSection = { display: "flex", justifyContent: "center", alignItems: "center" };
 
 export const contactSection = { display: "flex", justifyContent: "center", alignItems: "center" };

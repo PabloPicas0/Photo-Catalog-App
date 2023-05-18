@@ -5,8 +5,10 @@ import { types } from "../App";
 import { filterBorderRadius } from "../styles/styledComponents";
 
 const Filters = (props) => {
+  const { handleFilter } = props;
+
   return (
-    <Grid container spacing={2} justifyContent={"center"} sx={{margin: "0px"}}>
+    <Grid container spacing={2} justifyContent={"center"} sx={{ margin: "0px" }}>
       {types.map((elem, idx) => {
         const letter = elem.split("");
 
@@ -18,7 +20,7 @@ const Filters = (props) => {
               label={elem}
               sx={filterBorderRadius}
               color="warning"
-              onClick={() => props.handleFilter(elem)}
+              onClick={() => handleFilter(elem)}
             />
           </Grid>
         );

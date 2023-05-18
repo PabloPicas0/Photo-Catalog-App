@@ -1,19 +1,17 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 
 const Catalog = (props) => {
+  const { catalogs, handleOpen } = props;
+
   return (
     <div className="catalogs-wrapper">
       <Grid container spacing={2} justifyContent={"center"}>
-        {props.catalogs.map((element, idx) => {
+        {catalogs.map((element, idx) => {
           return (
             <Grid item key={idx}>
               <Card sx={{ maxWidth: 325 }}>
-                <CardActionArea onClick={() => props.handleOpen(element)}>
-                  <CardMedia
-                    component={"img"}
-                    sx={{ height: 140 }}
-                    src={element.image}
-                  />
+                <CardActionArea onClick={() => handleOpen(element)}>
+                  <CardMedia component={"img"} sx={{ height: 140 }} src={element.image} />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {element.catalog}
