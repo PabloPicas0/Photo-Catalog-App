@@ -57,5 +57,6 @@ export const sideNavigation = {
 
 export const pageNumber = {
   margin: "0px 21px 0px 45px",
-  color: "#fff"
+  color: "#fff",
+  pointerEvents: "none"
 }

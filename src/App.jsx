@@ -69,17 +69,22 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(
+      (entries) => {
         entries.forEach((entry) => {
           const { current } = sectionsRef; // Destruct the ref object that have array of all sections
 
-          const counter = sideNavRef.current.querySelector("#counter"); // Pick element with number of current section
+          const sideCounter = sideNavRef.current.querySelector("#counter"); // Pick element with number of current section
+          const sideDot = sideNavRef.current.querySelector(`a[href='#${entry.target.id}']`);
 
-          // Here just search array of all sections to get index of current intersecting element 
+          // Here just search array of all sections to get index of current intersecting element
           const currentSection = current.indexOf(entry.target);
 
           if (entry.isIntersecting) {
-            counter.textContent = `0${currentSection + 1}`; // If entry is intersecting change number of current section using its section index + 1
+            sideCounter.textContent = `0${currentSection + 1}`; // If entry is intersecting change number of current section using its section index + 1
+            sideDot.classList.add("active-dot");
+          } else {
+            sideDot.classList.remove("active-dot");
           }
         });
       },

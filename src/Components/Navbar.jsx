@@ -68,11 +68,11 @@ const Navbar = (props) => {
       </AppBar>
 
       <Box component={"nav"} className="side-navigation" sx={sideNavigation} ref={sideNavRef}>
-        <Link underline="none" sx={pageNumber} href="#contact">
+        <Box sx={pageNumber}>
           <span id="counter">01</span>
           <div className="div-block"></div>
           <span>03</span>
-        </Link>
+        </Box>
 
         <div>
           {links.map((link) => {

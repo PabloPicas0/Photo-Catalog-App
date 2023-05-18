@@ -41,6 +41,10 @@
   transform: translate(7px, 0);
 }
 
+.active-dot {
+  background-color: #fff !important;
+}
+
 @media (max-width: 1280px) {
   #catalogs {
     flex-direction: column;
