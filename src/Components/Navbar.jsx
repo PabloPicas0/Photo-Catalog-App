@@ -13,6 +13,8 @@ import {
 import { useState } from "react";
 
 const Navbar = (props) => {
+  const { sideNavRef } = props;
+
   const [openNav, setOpenNav] = useState(null);
 
   const links = ["About", "Catalogs", "Contact"];
@@ -65,9 +67,9 @@ const Navbar = (props) => {
         </Toolbar>
       </AppBar>
 
-      <Box component={"nav"} className="side-navigation" sx={sideNavigation}>
+      <Box component={"nav"} className="side-navigation" sx={sideNavigation} ref={sideNavRef}>
         <Link underline="none" sx={pageNumber} href="#contact">
-          <span>01</span>
+          <span id="counter">01</span>
           <div className="div-block"></div>
           <span>03</span>
         </Link>

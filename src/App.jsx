@@ -19,6 +19,9 @@ function App() {
   const [filter, setFilter] = useState("");
   const [openModal, setOpenModal] = useState(false);
 
+  const sectionsRef = useRef([]);
+  const sideNavRef = useRef(null);
+
   const handleOpen = (element) => {
     setModal(element.content); // element passed is object from each catalog that fire whe user click
     setOpenModal(true);
@@ -66,6 +69,31 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const { current } = sectionsRef; // Destruct the ref object that have array of all sections
+
+          const counter = sideNavRef.current.querySelector("#counter"); // Pick element with number of current section
+
+          // Here just search array of all sections to get index of current intersecting element 
+          const currentSection = current.indexOf(entry.target);
+
+          if (entry.isIntersecting) {
+            counter.textContent = `0${currentSection + 1}`; // If entry is intersecting change number of current section using its section index + 1
+          }
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    sectionsRef.current.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     // This if statement prevents from runing the code on first app mount
     if (data.length !== 0) {
       setCatalogs((prev) => {
@@ -78,19 +106,27 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar sideNavRef={sideNavRef} />
 
-      <section id="about" className="catalogs" style={aboutSection}>
+      <section
+        id="about"
+        className="catalogs"
+        style={aboutSection}
+        ref={(el) => (sectionsRef.current[0] = el)}>
         Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
       </section>
 
-      <section id="catalogs" className="catalogs">
+      <section id="catalogs" className="catalogs" ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
         <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
 
-      <section id="contact" className="catalogs" style={contactSection}>
+      <section
+        id="contact"
+        className="catalogs"
+        style={contactSection}
+        ref={(el) => (sectionsRef.current[2] = el)}>
         Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
       </section>
 
