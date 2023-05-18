@@ -2,19 +2,19 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
-import { modal, modalCard, modalMainContent } from "../styles/styledComponents";
+import { modalStyle, modalCard, modalMainContent } from "../styles/styledComponents";
 
 const CatalogModal = (props) => {
   const { modal, openModal, handleClose } = props;
 
-  const [mainImage, setMainImage] = useState(props.modal[0]);
+  const [mainImage, setMainImage] = useState(modal[0]);
 
   const handleImage = (element) => {
     setMainImage(element);
   };
 
   return (
-    <Modal open={openModal} onClose={handleClose} sx={modal}>
+    <Modal open={openModal} onClose={handleClose} sx={modalStyle}>
       <Box sx={modalMainContent}>
         <Fade in={openModal}>
           <Box sx={{ padding: "5px" }}>

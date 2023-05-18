@@ -23,7 +23,9 @@ function App() {
   const sideNavRef = useRef(null);
 
   const handleOpen = (element) => {
-    setModal(element.content); // element passed is object from each catalog that fire whe user click
+    const { content } = element;
+    
+    setModal(content); // element passed is object from each catalog that fire whe user click
     setOpenModal(true);
   };
 

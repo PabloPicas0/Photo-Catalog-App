@@ -9,7 +9,7 @@ export const contactSection = { display: "flex", justifyContent: "center", align
 
 export const filterBorderRadius = { borderRadius: "5px", border: "1px solid white" };
 
-export const modal = {
+export const modalStyle = {
   overflowY: "scroll",
   overflowX: "hidden",
   backdropFilter: { sm: "blur(3px)", xs: "none" },
