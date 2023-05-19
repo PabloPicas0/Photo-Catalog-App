@@ -8,7 +8,7 @@ import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
 import MediaBar from "./Components/MediaBar";
 
-import { aboutSection, contactSection } from "./styles/styledComponents";
+import { aboutSection, catalogsSection, contactSection } from "./styles/styledComponents";
 
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
@@ -90,7 +90,10 @@ function App() {
           }
         });
       },
-      { threshold: 0.45 } // Bug: It is possible to observe 2 cards in the same time
+      // IMPORTANT!!!
+      // Each section should have at least 5px of margin top
+      // To prevent the bug where two section were intersecting at the same time  
+      { threshold: 0.45 }
     );
 
     sectionsRef.current.forEach((section) => {
@@ -123,7 +126,7 @@ function App() {
         Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
       </section>
 
-      <section id="catalogs" className="catalogs" ref={(el) => (sectionsRef.current[1] = el)}>
+      <section id="catalogs" style={catalogsSection} className="catalogs" ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
         <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />

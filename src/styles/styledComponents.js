@@ -5,7 +5,14 @@ export const modalMainContent = {
 
 export const aboutSection = { display: "flex", justifyContent: "center", alignItems: "center" };
 
-export const contactSection = { display: "flex", justifyContent: "center", alignItems: "center" };
+export const catalogsSection = { marginTop: "5px" };
+
+export const contactSection = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "5px",
+};
 
 export const filterBorderRadius = { borderRadius: "5px", border: "1px solid #daa520" };
 
@@ -58,5 +65,5 @@ export const sideNavigation = {
 export const pageNumber = {
   margin: "0px 21px 0px 45px",
   color: "#fff",
-  pointerEvents: "none"
-}
+  pointerEvents: "none",
+};

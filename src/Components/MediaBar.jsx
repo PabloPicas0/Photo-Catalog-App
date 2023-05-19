@@ -12,7 +12,7 @@ const MediaBar = () => {
   ];
   // Fix aria-label on InconButton
   return (
-    <ButtonGroup variant="contained" aria-label=" primary button group" sx={mediaBarStyle}>
+    <ButtonGroup variant="contained" aria-label="primary button group" sx={mediaBarStyle}>
       {incons.map((icon, idx) => {
         return (
           <Link href="https://www.facebook.com/adam.pytel.501" target="_blank" key={idx}>
