@@ -53,7 +53,7 @@ function App() {
       return Math.floor(Math.random() * (max - min) + min);
     };
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 6; i++) {
       rngInt.push({
         image: `https://picsum.photos/1920/1080?random=${i}`,
         content: [],
@@ -75,7 +75,7 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           const { current } = sectionsRef; // Destruct the ref object that have array of all sections
-
+          console.log(entry)
           const sideCounter = sideNavRef.current.querySelector("#counter"); // Pick element with number of current section
           const sideDot = sideNavRef.current.querySelector(`a[href='#${entry.target.id}']`);
 
@@ -92,8 +92,10 @@ function App() {
       },
       // IMPORTANT!!!
       // Each section should have at least 5px of margin top
-      // To prevent the bug where two section were intersecting at the same time  
+      // To prevent the bug where two section were intersecting at the same time
       { threshold: 0.45 }
+      // BUG: on 4k res dubble dots still exist !
+      // BUG: on lower res it is possible to not target any dot !
     );
 
     sectionsRef.current.forEach((section) => {

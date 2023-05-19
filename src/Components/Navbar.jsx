@@ -40,7 +40,7 @@ const Navbar = (props) => {
               const anhor = link.toLowerCase();
 
               return (
-                <Link key={link} underline="none" color={"white"} href={`#${anhor}`} className="link">
+                <Link key={link} underline="none" href={`#${anhor}`} className="link">
                   {link}
                 </Link>
               );

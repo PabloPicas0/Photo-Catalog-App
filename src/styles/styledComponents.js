@@ -47,7 +47,7 @@ export const mediaBarStyle = {
   display: { xs: "none", lg: "inline-flex" },
 };
 
-export const mediaBarLinksStyle = { color: "rgba(255, 255, 255, 0.87)" };
+export const mediaBarLinksStyle = { color: "rgba(218, 165, 32, 0.87)" };
 
 export const sideNavLink = {
   display: "block",
