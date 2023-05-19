@@ -90,7 +90,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.45 }
+      { threshold: 0.45 } // Bug: It is possible to observe 2 cards in the same time
     );
 
     sectionsRef.current.forEach((section) => {

@@ -47,6 +47,7 @@ const Navbar = (props) => {
             })}
           </Breadcrumbs>
 
+          {/* Bug on mobile version caused by padding */}
           <IconButton size="large" aria-label="open-navigation" onClick={handleOpenNav} sx={appBarIcon}>
             <MenuOutlined />
           </IconButton>

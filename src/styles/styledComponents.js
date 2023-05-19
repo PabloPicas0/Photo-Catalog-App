@@ -7,7 +7,7 @@ export const aboutSection = { display: "flex", justifyContent: "center", alignIt
 
 export const contactSection = { display: "flex", justifyContent: "center", alignItems: "center" };
 
-export const filterBorderRadius = { borderRadius: "5px", border: "1px solid white" };
+export const filterBorderRadius = { borderRadius: "5px", border: "1px solid #daa520" };
 
 export const modalStyle = {
   overflowY: "scroll",

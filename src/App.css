@@ -16,11 +16,11 @@
 
 .link:hover {
   background-color: var(--link-color);
-  color: #ed6c02;
+  color: var(--secondary-color);
 }
 
 .social-link:hover {
-  color: #ed6c02 !important;
+  color: var(--secondary-color) !important;
 }
 
 .side-navigation {
@@ -35,14 +35,14 @@
 }
 
 .div-block {
-  width: 2px;
+  width: 3px;
   height: 50px;
-  background-color: #fff;
+  background-color: var(--primary-color);
   transform: translate(7px, 0);
 }
 
 .active-dot {
-  background-color: #fff !important;
+  background-color: var(--primary-color) !important;
 }
 
 @media (max-width: 1280px) {
