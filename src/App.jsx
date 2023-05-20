@@ -6,7 +6,6 @@ import Filters from "./Components/filters";
 import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
-import MediaBar from "./Components/MediaBar";
 
 import { aboutSection, catalogsSection, contactSection } from "./styles/styledComponents";
 
@@ -24,7 +23,7 @@ function App() {
 
   const handleOpen = (element) => {
     const { content } = element;
-    
+
     setModal(content); // element passed is object from each catalog that fire whe user click
     setOpenModal(true);
   };
@@ -129,7 +128,11 @@ function App() {
         Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
       </section>
 
-      <section id="catalogs" style={catalogsSection} className="catalogs" ref={(el) => (sectionsRef.current[1] = el)}>
+      <section
+        id="catalogs"
+        style={catalogsSection}
+        className="catalogs"
+        ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
         <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
@@ -142,8 +145,6 @@ function App() {
         ref={(el) => (sectionsRef.current[2] = el)}>
         Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
       </section>
-
-      <MediaBar />
     </>
   );
 }

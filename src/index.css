@@ -28,7 +28,6 @@ body {
   min-height: 100vh;
   background-color: var(--body-fallback-background);
   background-image: var(--body-background);
-  background-attachment: fixed;
 }
 
 span {

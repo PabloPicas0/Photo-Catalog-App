@@ -1,11 +1,22 @@
-import { MenuOutlined } from "@mui/icons-material";
-import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Menu, MenuItem, Box } from "@mui/material";
+import { MenuOutlined, FacebookSharp, Instagram, Twitter, YouTube } from "@mui/icons-material";
+import {
+  AppBar,
+  Breadcrumbs,
+  IconButton,
+  Link,
+  Toolbar,
+  Menu,
+  MenuItem,
+  Box,
+  ButtonGroup,
+} from "@mui/material";
 
 import {
   appBarIcon,
   appBarLinks,
   appBarStyle,
   mediaBarLinksStyle,
+  mediaBarStyle,
   pageNumber,
   sideNavLink,
   sideNavigation,
@@ -19,6 +30,12 @@ const Navbar = (props) => {
   const [openNav, setOpenNav] = useState(null);
 
   const links = ["About", "Catalogs", "Contact"];
+  const incons = [
+    <FacebookSharp className="social-link" />,
+    <Twitter className="social-link" />,
+    <Instagram className="social-link" />,
+    <YouTube className="social-link" />,
+  ];
 
   const handleOpenNav = (event) => {
     setOpenNav(event.currentTarget);
@@ -91,6 +108,18 @@ const Navbar = (props) => {
           })}
         </div>
       </Box>
+
+      <ButtonGroup variant="contained" aria-label="primary button group" sx={mediaBarStyle}>
+        {incons.map((icon, idx) => {
+          return (
+            <Link href="https://www.facebook.com/adam.pytel.501" target="_blank" key={idx}>
+              <IconButton size="large" aria-label="YouTube" sx={mediaBarLinksStyle}>
+                {icon}
+              </IconButton>
+            </Link>
+          );
+        })}
+      </ButtonGroup>
     </>
   );
 };
