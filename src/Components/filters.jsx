@@ -8,7 +8,7 @@ const Filters = (props) => {
   const { handleFilter } = props;
 
   return (
-    <Grid container spacing={2} justifyContent={"center"} sx={{ margin: "0px" }}>
+    <Grid container spacing={2} justifyContent={"center"} sx={{ margin: "0px" }} width={"100%"}>
       {types.map((elem, idx) => {
         const letter = elem.split("");
 

@@ -6,7 +6,7 @@ const Catalog = (props) => {
   //TODO: Refactor to scrollable in horizontal  
   return (
     <div className="catalogs-wrapper">
-      <Grid container spacing={2} justifyContent={"center"}>
+      <Grid container spacing={2} justifyContent={"center"} width={"100%"}>
         {catalogs.map((element, idx) => {
           return (
             <Grid item key={idx}>
