@@ -5,6 +5,7 @@ import {
   appBarIcon,
   appBarLinks,
   appBarStyle,
+  mediaBarLinksStyle,
   pageNumber,
   sideNavLink,
   sideNavigation,
@@ -31,7 +32,7 @@ const Navbar = (props) => {
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Link variant="h6" href="/" underline="none" color={"white"}>
+          <Link variant="h6" href="/" underline="none" sx={mediaBarLinksStyle}>
             LOGO
           </Link>
 

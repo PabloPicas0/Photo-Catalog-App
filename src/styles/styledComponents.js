@@ -5,13 +5,13 @@ export const modalMainContent = {
 
 export const aboutSection = { display: "flex", justifyContent: "center", alignItems: "center" };
 
-export const catalogsSection = { marginTop: "5px" };
+export const catalogsSection = { marginTop: "1px" };
 
 export const contactSection = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  marginTop: "5px",
+  marginTop: "1px",
 };
 
 export const filterBorderRadius = { borderRadius: "5px", border: "1px solid #daa520" };
@@ -49,6 +49,10 @@ export const mediaBarStyle = {
 
 export const mediaBarLinksStyle = { color: "rgba(218, 165, 32, 0.87)" };
 
+export const sideNavigation = {
+  display: { xs: "none", lg: "flex" },
+};
+
 export const sideNavLink = {
   display: "block",
   borderRadius: "50%",
@@ -56,10 +60,6 @@ export const sideNavLink = {
   backgroundColor: "transparent",
   margin: "10px 0px",
   padding: "5px",
-};
-
-export const sideNavigation = {
-  display: { xs: "none", lg: "flex" },
 };
 
 export const pageNumber = {

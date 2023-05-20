@@ -75,7 +75,7 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           const { current } = sectionsRef; // Destruct the ref object that have array of all sections
-          console.log(entry)
+
           const sideCounter = sideNavRef.current.querySelector("#counter"); // Pick element with number of current section
           const sideDot = sideNavRef.current.querySelector(`a[href='#${entry.target.id}']`);
 
@@ -91,11 +91,12 @@ function App() {
         });
       },
       // IMPORTANT!!!
-      // Each section should have at least 5px of margin top
-      // To prevent the bug where two section were intersecting at the same time
-      { threshold: 0.45 }
-      // BUG: on 4k res dubble dots still exist !
-      // BUG: on lower res it is possible to not target any dot !
+      // There is a bug where two dots are active
+      // But it shouldnt never be percived due to its 1px wide
+      // If you want to replicate it you need to trun on device emulation and search for
+      // Exact px between sections. With scroll bar its impossible.
+      // If you want to add new section remember to give her 1px margin top
+      { rootMargin: "-25% 0px -75% 0px" }
     );
 
     sectionsRef.current.forEach((section) => {
