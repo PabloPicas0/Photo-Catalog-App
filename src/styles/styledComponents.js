@@ -56,7 +56,7 @@ export const sideNavigation = {
 export const sideNavLink = {
   display: "block",
   borderRadius: "50%",
-  border: "1px solid #fff",
+  border: "1px solid rgba(218, 165, 32, 0.87)",
   backgroundColor: "transparent",
   margin: "10px 0px",
   padding: "5px",
@@ -64,6 +64,6 @@ export const sideNavLink = {
 
 export const pageNumber = {
   margin: "0px 21px 0px 45px",
-  color: "#fff",
+  color: "rgba(218, 165, 32, 0.87)",
   pointerEvents: "none",
 };

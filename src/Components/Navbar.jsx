@@ -53,6 +53,7 @@ const Navbar = (props) => {
             LOGO
           </Link>
 
+          {/* Desktop version */}
           <Breadcrumbs aria-label="navigation" separator="" sx={appBarLinks}>
             {links.map((link) => {
               const anhor = link.toLowerCase();
@@ -65,7 +66,7 @@ const Navbar = (props) => {
             })}
           </Breadcrumbs>
 
-          {/* Bug on mobile version caused by padding */}
+          {/* Mobile version */}
           <IconButton size="large" aria-label="open-navigation" onClick={handleOpenNav} sx={appBarIcon}>
             <MenuOutlined />
           </IconButton>
@@ -86,6 +87,7 @@ const Navbar = (props) => {
         </Toolbar>
       </AppBar>
 
+      {/* Side navigation */}
       <Box component={"nav"} className="side-navigation" sx={sideNavigation} ref={sideNavRef}>
         <Box sx={pageNumber}>
           <span id="counter">01</span>
@@ -109,6 +111,7 @@ const Navbar = (props) => {
         </div>
       </Box>
 
+      {/* Social media links */}
       <ButtonGroup variant="contained" aria-label="primary button group" sx={mediaBarStyle}>
         {incons.map((icon, idx) => {
           return (
