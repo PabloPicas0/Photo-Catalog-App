@@ -63,7 +63,7 @@ const Navbar = (props) => {
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          <Link variant="h6" href="/" underline="none" sx={mediaBarLinksStyle}>
+          <Link variant="h6" href="/Photo-Catalog-App/" underline="none" sx={mediaBarLinksStyle}>
             <img src="/Photo-Catalog-App/Images/lgg.png" />
           </Link>
 
