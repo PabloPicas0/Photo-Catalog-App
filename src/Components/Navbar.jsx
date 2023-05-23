@@ -9,6 +9,7 @@ import {
   MenuItem,
   Box,
   ButtonGroup,
+  Switch,
 } from "@mui/material";
 
 import {
@@ -22,12 +23,13 @@ import {
   sideNavigation,
 } from "../styles/styledComponents";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = (props) => {
   const { sideNavRef } = props;
 
   const [openNav, setOpenNav] = useState(null);
+  const [switchBackground, setSwitchBackground] = useState(false);
 
   const links = ["About", "Catalogs", "Contact"];
   const incons = [
@@ -45,13 +47,27 @@ const Navbar = (props) => {
     setOpenNav(null);
   };
 
+  const handleBackground = () => {
+    setSwitchBackground((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const bg1 = "https://scontent-ams2-1.xx.fbcdn.net/v/t1.15752-9/346132442_1268628943746723_435720660055329800_n.png?stp=dst-png_p1080x2048&_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=a2dNcAsUSZMAX8vxhW_&_nc_ht=scontent-ams2-1.xx&oh=03_AdTrXOjlj6BuKKShFF6tkDE4vSO9uOo2qj061mWGQgKVCg&oe=648B46F8"
+    const bg2 = "/public/Images/cegła.jpg"
+    const body = document.querySelector("body").style
+
+    switchBackground === false ? body.backgroundImage = `url(${bg1})` : body.backgroundImage = `url(${bg2})`
+  }, [switchBackground])
+
   return (
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Link variant="h6" href="/" underline="none" sx={mediaBarLinksStyle}>
-            LOGO
+            <img src="/public/Images/lgg.png" />
           </Link>
+
+          <Switch onChange={handleBackground} color="warning" defaultChecked/>
 
           {/* Desktop version */}
           <Breadcrumbs aria-label="navigation" separator="" sx={appBarLinks}>
