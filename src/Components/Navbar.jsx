@@ -9,7 +9,6 @@ import {
   MenuItem,
   Box,
   ButtonGroup,
-  Switch,
 } from "@mui/material";
 
 import {
@@ -23,13 +22,12 @@ import {
   sideNavigation,
 } from "../styles/styledComponents";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Navbar = (props) => {
   const { sideNavRef } = props;
 
   const [openNav, setOpenNav] = useState(null);
-  const [switchBackground, setSwitchBackground] = useState(false);
 
   const links = ["About", "Catalogs", "Contact"];
   const incons = [
@@ -47,18 +45,6 @@ const Navbar = (props) => {
     setOpenNav(null);
   };
 
-  const handleBackground = () => {
-    setSwitchBackground((prev) => !prev);
-  };
-
-  useEffect(() => {
-    const bg1 = "/Photo-Catalog-App/Images/cegła.jpg";
-    const bg2 = "/Photo-Catalog-App/Images/cegła2x3.jpg";
-    const body = document.querySelector("body").style
-
-    switchBackground === false ? body.backgroundImage = `url(${bg1})` : body.backgroundImage = `url(${bg2})`
-  }, [switchBackground])
-
   return (
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
@@ -66,8 +52,6 @@ const Navbar = (props) => {
           <Link variant="h6" href="/Photo-Catalog-App/" underline="none" sx={mediaBarLinksStyle}>
             <img src="/Photo-Catalog-App/Images/lgg.png" />
           </Link>
-
-          <Switch onChange={handleBackground} color="warning" defaultChecked />
 
           {/* Desktop version */}
           <Breadcrumbs aria-label="navigation" separator="" sx={appBarLinks}>
