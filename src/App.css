@@ -45,6 +45,16 @@
   z-index: 1;
 }
 
+.slider-right-arrow:hover {
+  transform: translate(5px, 0px);
+  transition: transform 500ms ease;
+}
+
+.slider-left-arrow:hover {
+  transform: translate(-5px, 0px);
+  transition: transform 500ms ease;
+}
+
 .dots-container {
   display: flex;
   justify-content: center;
@@ -54,6 +64,10 @@
   margin: 0px 3px;
   cursor: pointer;
   font-size: 20px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: transparent;
 }
 
 .link {
