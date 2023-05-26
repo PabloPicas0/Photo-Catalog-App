@@ -1,3 +1,9 @@
+#catalogs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .catalogs {
   min-height: 100vh;
   max-width: 1700px;
@@ -5,7 +11,38 @@
 }
 
 .catalogs-wrapper {
+  position: relative;
   padding: 85px 20px 20px 20px;
+}
+
+.slider-left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 45px;
+  color: #5e5e5e;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: transparent;
+  z-index: 1;
+}
+
+.slider-right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 45px;
+  color: #5e5e5e;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: transparent;
+  z-index: 1;
 }
 
 .link {
