@@ -4,14 +4,19 @@ import { useState } from "react";
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;
 
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const sliders = catalogs.map((element, idx) => {
     return (
       <Grid item key={idx}>
         <Card sx={{ maxWidth: 325 }}>
           <CardActionArea onClick={() => handleOpen(element)}>
-            <CardMedia component={"img"} sx={{ height: 140 }} src={element.image} title="Photo of the current catalog"/>
+            <CardMedia
+              component={"img"}
+              sx={{ height: 140 }}
+              src={element.image}
+              title="Photo of the current catalog"
+            />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {element.catalog}
@@ -29,25 +34,43 @@ const Catalog = (props) => {
   });
 
   const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0
-    const newIndex = isFirstSlide ? sliders.length - 1 : currentIndex - 1
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? sliders.length - 1 : currentIndex - 1;
 
     setCurrentIndex(newIndex);
-  }
+  };
 
   const goToNext = () => {
-    const isLastSlide = currentIndex === sliders.length - 1
-    const newIndex = isLastSlide ? 0 : currentIndex + 1
+    const isLastSlide = currentIndex === sliders.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
 
-    setCurrentIndex(newIndex)
-  }
+    setCurrentIndex(newIndex);
+  };
 
-  //TODO: Refactor to scrollable in horizontal  
+  const goToSlide = (slideIdx) => {
+    setCurrentIndex(slideIdx);
+  };
+
   return (
     <div className="catalogs-wrapper">
-      <button onClick={goToPrevious} className="slider-left-arrow">{"<"}</button>
-      <button onClick={goToNext} className="slider-right-arrow">{">"}</button>
+      <button onClick={goToPrevious} className="slider-left-arrow">
+        {"❰"}
+      </button>
+      <button onClick={goToNext} className="slider-right-arrow">
+        {"❱"}
+      </button>
+
       {sliders[currentIndex]}
+
+      <div className="dots-container">
+        {sliders.map((slider, slideIdx) => {
+          return (
+            <div key={slideIdx} className="dot-style" onClick={() => goToSlide(slideIdx)}>
+              ●
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
