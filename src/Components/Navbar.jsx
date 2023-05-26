@@ -50,7 +50,7 @@ const Navbar = (props) => {
       <AppBar component={"nav"} sx={appBarStyle}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Link variant="h6" href="/Photo-Catalog-App/" underline="none" sx={mediaBarLinksStyle}>
-            <img src="/Photo-Catalog-App/Images/lgg.png" />
+            <img alt="sma logo" title="Logo of the site" src="/Photo-Catalog-App/Images/lgg.png" />
           </Link>
 
           {/* Desktop version */}
@@ -96,11 +96,12 @@ const Navbar = (props) => {
         </Box>
 
         <div>
-          {links.map((link) => {
+          {links.map((link, idx) => {
             const anhor = link.toLowerCase();
 
             return (
               <Link
+                title={`Dot redirectiong to section nr ${idx + 1}`}
                 textAlign={"center"}
                 underline="none"
                 href={`#${anhor}`}

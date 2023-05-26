@@ -11,7 +11,7 @@ const Catalog = (props) => {
       <Grid item key={idx}>
         <Card sx={{ maxWidth: 325 }}>
           <CardActionArea onClick={() => handleOpen(element)}>
-            <CardMedia component={"img"} sx={{ height: 140 }} src={element.image} />
+            <CardMedia component={"img"} sx={{ height: 140 }} src={element.image} title="Photo of the current catalog"/>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {element.catalog}
