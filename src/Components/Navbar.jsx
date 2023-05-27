@@ -101,7 +101,7 @@ const Navbar = (props) => {
 
             return (
               <Link
-                title={`Dot redirectiong to section nr ${idx + 1}`}
+                title={`Dot redirecting to section nr ${idx + 1}`}
                 textAlign={"center"}
                 underline="none"
                 href={`#${anhor}`}

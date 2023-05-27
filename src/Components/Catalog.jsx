@@ -1,5 +1,8 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+
 import { useState } from "react";
+
+import { dotStyle } from "../styles/styledComponents";
 
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;
@@ -60,7 +63,7 @@ const Catalog = (props) => {
         {"❱"}
       </button>
 
-      <div style={{ display: "flex", gap: "10px" }}>
+      <div style={{ display: "flex", gap: "10px", overflowX: "hidden" }}>
         {sliders[currentIndex === 0 ? sliders.length - 1 : currentIndex - 1]}
         {sliders[currentIndex]}
         {sliders[currentIndex === sliders.length - 1 ? 0 : currentIndex + 1]}
@@ -69,9 +72,13 @@ const Catalog = (props) => {
       <div className="dots-container">
         {sliders.map((slider, slideIdx) => {
           return (
-            <div key={slideIdx} className="dot-style" onClick={() => goToSlide(slideIdx)}>
-              ●
-            </div>
+            <div
+              key={slideIdx}
+              style={{
+                ...dotStyle,
+                backgroundColor: `${currentIndex === slideIdx ? "#fff" : "transparent"}`,
+              }}
+              onClick={() => goToSlide(slideIdx)}></div>
           );
         })}
       </div>
