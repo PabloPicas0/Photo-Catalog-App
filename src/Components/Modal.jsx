@@ -2,7 +2,7 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
-import { modalStyle, modalCard, modalMainContent } from "../styles/styledComponents";
+import { modalStyle, modalCard, modalMainContent } from "../styles/modalStyles";
 
 const CatalogModal = (props) => {
   const { modal, openModal, handleClose } = props;

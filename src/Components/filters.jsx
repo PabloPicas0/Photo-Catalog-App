@@ -2,7 +2,7 @@ import { Avatar, Chip, Grid } from "@mui/material";
 
 import { types } from "../App";
 
-import { filterBorderRadius } from "../styles/styledComponents";
+import { filterBorderRadius } from "../styles/filterStyles";
 
 const Filters = (props) => {
   const { handleFilter } = props;

@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "
 
 import { useState } from "react";
 
-import { dotStyle } from "../styles/styledComponents";
+import { dotStyle } from "../styles/catalogsStyles";
 
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;

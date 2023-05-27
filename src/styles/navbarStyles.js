@@ -1,29 +1,3 @@
-export const modalMainContent = {
-  maxWidth: 1200,
-  margin: "0 auto",
-};
-
-export const aboutSection = { display: "flex", justifyContent: "center", alignItems: "center" };
-
-export const catalogsSection = { marginTop: "1px" };
-
-export const contactSection = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  marginTop: "1px",
-};
-
-export const filterBorderRadius = { borderRadius: "5px", border: "1px solid #daa520" };
-
-export const modalStyle = {
-  overflowY: "scroll",
-  overflowX: "hidden",
-  backdropFilter: { sm: "blur(3px)", xs: "none" },
-};
-
-export const modalCard = { maxWidth: 645, margin: "0 auto" };
-
 export const appBarStyle = {
   backgroundColor: "transparent",
   padding: "20px 6vw",
@@ -66,16 +40,4 @@ export const pageNumber = {
   margin: "0px 21px 0px 45px",
   color: "rgba(218, 165, 32, 0.87)",
   pointerEvents: "none",
-};
-
-export const dotStyle = {
-  margin: "0px 3px",
-  cursor: "pointer",
-  fontDize: "20px",
-  WebkitUserSelect: "none",
-  msUserSelect: "none",
-  userSelect: "none",
-  border: "1px solid rgba(218, 165, 32, 0.87)",
-  borderRadius: "50%",
-  padding: "5px",
 };

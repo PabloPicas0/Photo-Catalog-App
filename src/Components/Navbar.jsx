@@ -20,7 +20,7 @@ import {
   pageNumber,
   sideNavLink,
   sideNavigation,
-} from "../styles/styledComponents";
+} from "../styles/navbarStyles";
 
 import { useState } from "react";
 

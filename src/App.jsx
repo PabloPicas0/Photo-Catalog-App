@@ -7,7 +7,7 @@ import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
 
-import { aboutSection, catalogsSection, contactSection } from "./styles/styledComponents";
+import { aboutSection, catalogsSection, contactSection } from "./styles/sectionStyles";
 
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
