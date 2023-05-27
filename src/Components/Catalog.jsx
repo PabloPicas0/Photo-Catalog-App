@@ -60,7 +60,11 @@ const Catalog = (props) => {
         {"❱"}
       </button>
 
-      {sliders[currentIndex]}
+      <div style={{ display: "flex", gap: "10px" }}>
+        {sliders[currentIndex === 0 ? sliders.length - 1 : currentIndex - 1]}
+        {sliders[currentIndex]}
+        {sliders[currentIndex === sliders.length - 1 ? 0 : currentIndex + 1]}
+      </div>
 
       <div className="dots-container">
         {sliders.map((slider, slideIdx) => {
