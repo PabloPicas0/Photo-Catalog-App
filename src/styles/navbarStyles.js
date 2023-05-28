@@ -24,6 +24,7 @@ export const mediaBarStyle = {
   paddingLeft: "5%",
   boxShadow: "none",
   display: { xs: "none", lg: "inline-flex" },
+  pointerEvents: "none",
 };
 
 export const mediaBarLinksStyle = { color: "rgba(218, 165, 32, 0.87)", pointerEvents: "auto" };
