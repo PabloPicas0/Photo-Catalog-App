@@ -11,8 +11,7 @@ const Catalog = (props) => {
 
   const sliders = catalogs.map((element, idx) => {
     return (
-      <Grid item key={idx}>
-        <Card sx={{ maxWidth: 325 }}>
+        <Card sx={{ maxWidth: 325 }} key={idx}>
           <CardActionArea onClick={() => handleOpen(element)}>
             <CardMedia
               component={"img"}
@@ -32,7 +31,6 @@ const Catalog = (props) => {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Grid>
     );
   });
 
