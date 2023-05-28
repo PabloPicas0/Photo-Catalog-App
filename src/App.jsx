@@ -133,6 +133,7 @@ function App() {
         style={catalogsSection}
         className="catalogs"
         ref={(el) => (sectionsRef.current[1] = el)}>
+        <Filters handleFilter={handleFilter} />
         <Catalog catalogs={catalogs} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
