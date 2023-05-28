@@ -3,11 +3,16 @@ export const appBarStyle = {
   padding: "20px 6vw",
   boxShadow: "none",
   textTransform: "uppercase",
+  pointerEvents: "none",
 };
 
-export const appBarLinks = { display: { sm: "flex", xs: "none" } };
+export const appBarLinks = { display: { sm: "flex", xs: "none" }, pointerEvents: "auto" };
 
-export const appBarIcon = { color: "rgba(255, 255, 255, 0.87);", display: { xs: "inline-flex", sm: "none" } };
+export const appBarIcon = {
+  color: "rgba(255, 255, 255, 0.87);",
+  display: { xs: "inline-flex", sm: "none" },
+  pointerEvents: "auto",
+};
 
 export const mediaBarStyle = {
   position: "fixed",
@@ -21,7 +26,7 @@ export const mediaBarStyle = {
   display: { xs: "none", lg: "inline-flex" },
 };
 
-export const mediaBarLinksStyle = { color: "rgba(218, 165, 32, 0.87)" };
+export const mediaBarLinksStyle = { color: "rgba(218, 165, 32, 0.87)", pointerEvents: "auto" };
 
 export const sideNavigation = {
   display: { xs: "none", lg: "flex" },
