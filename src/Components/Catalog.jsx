@@ -1,9 +1,9 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { ChevronLeftSharp, ChevronRightSharp } from "@mui/icons-material";
 
 import { useState } from "react";
 
 import { carouselStyles, dotStyle } from "../styles/catalogsStyles";
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;
@@ -55,11 +55,11 @@ const Catalog = (props) => {
 
   return (
     <div className="carousel-wrapper">
-      <button onClick={goToPrevious} className="slider-left-arrow">
-        <ArrowBackIos fontSize="large" />
+      <button onClick={goToPrevious} className="slider-left-arrow slider-arrow">
+        <ChevronLeftSharp fontSize="large" className="slider-left-arrow-icon" />
       </button>
-      <button onClick={goToNext} className="slider-right-arrow">
-        <ArrowForwardIos fontSize="large" />
+      <button onClick={goToNext} className="slider-right-arrow slider-arrow">
+        <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
       <Box sx={carouselStyles}>
