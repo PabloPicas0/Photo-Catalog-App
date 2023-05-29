@@ -9,3 +9,11 @@ export const dotStyle = {
   borderRadius: "50%",
   padding: "5px",
 };
+
+export const carouselStyles = {
+  display: "grid",
+  gridAutoFlow: "column",
+  gridAutoColumns: { xs: "100%", sm: "calc((100% / 3) - 12px)" },
+  gap: "16px",
+  overflow: "hidden",
+};

@@ -1,8 +1,8 @@
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 
 import { useState } from "react";
 
-import { dotStyle } from "../styles/catalogsStyles";
+import { carouselStyles, dotStyle } from "../styles/catalogsStyles";
 
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;
@@ -11,38 +11,38 @@ const Catalog = (props) => {
 
   const sliders = catalogs.map((element, idx) => {
     return (
-        <Card sx={{ maxWidth: 325 }} key={idx}>
-          <CardActionArea onClick={() => handleOpen(element)}>
-            <CardMedia
-              component={"img"}
-              sx={{ height: 140 }}
-              src={element.image}
-              title="Photo of the current catalog"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {element.catalog}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel porro dolores neque soluta illo
-                optio ea beatae recusandae veritatis, alias maiores velit id necessitatibus, culpa nihil,
-                praesentium pariatur amet sequi.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+      <Card sx={{ maxWidth: 325 }} key={idx}>
+        <CardActionArea onClick={() => handleOpen(element)}>
+          <CardMedia
+            component={"img"}
+            sx={{ height: 140 }}
+            src={element.image}
+            title="Photo of the current catalog"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {element.catalog}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel porro dolores neque soluta illo
+              optio ea beatae recusandae veritatis, alias maiores velit id necessitatibus, culpa nihil,
+              praesentium pariatur amet sequi.
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     );
   });
 
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? sliders.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide ? catalogs.length - 1 : currentIndex - 1;
 
     setCurrentIndex(newIndex);
   };
 
   const goToNext = () => {
-    const isLastSlide = currentIndex === sliders.length - 1;
+    const isLastSlide = currentIndex === catalogs.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
 
     setCurrentIndex(newIndex);
@@ -53,7 +53,7 @@ const Catalog = (props) => {
   };
 
   return (
-    <div className="catalogs-wrapper">
+    <div className="carousel-wrapper">
       <button onClick={goToPrevious} className="slider-left-arrow">
         {"❰"}
       </button>
@@ -61,14 +61,36 @@ const Catalog = (props) => {
         {"❱"}
       </button>
 
-      <div style={{ display: "flex", gap: "10px", overflowX: "hidden" }}>
-        {sliders[currentIndex === 0 ? sliders.length - 1 : currentIndex - 1]}
-        {sliders[currentIndex]}
-        {sliders[currentIndex === sliders.length - 1 ? 0 : currentIndex + 1]}
-      </div>
+      <Box
+        sx={carouselStyles}>
+        {catalogs.map((element, idx) => {
+          return (
+            <Card key={idx}>
+              <CardActionArea onClick={() => handleOpen(element)}>
+                <CardMedia
+                  component={"img"}
+                  sx={{ height: 140 }}
+                  src={element.image}
+                  title="Photo of the current catalog"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {element.catalog}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel porro dolores neque soluta
+                    illo optio ea beatae recusandae veritatis, alias maiores velit id necessitatibus, culpa
+                    nihil, praesentium pariatur amet sequi.
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          );
+        })}
+      </Box>
 
       <div className="dots-container">
-        {sliders.map((slider, slideIdx) => {
+        {catalogs.map((_, slideIdx) => {
           return (
             <div
               key={slideIdx}
