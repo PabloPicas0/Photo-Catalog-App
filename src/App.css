@@ -32,7 +32,6 @@
   border: transparent;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-  
   z-index: 1;
 }
 
@@ -51,7 +50,6 @@
   border: transparent;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-  
   z-index: 1;
 }
 
@@ -66,7 +64,7 @@
 }
 
 .slider-arrow:hover {
-  background-color: #F0F2F1;
+  background-color: #f0f2f1;
 }
 
 .slider-right-arrow-icon:hover {
