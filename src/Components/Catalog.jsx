@@ -3,6 +3,7 @@ import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@
 import { useState } from "react";
 
 import { carouselStyles, dotStyle } from "../styles/catalogsStyles";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;
@@ -55,10 +56,10 @@ const Catalog = (props) => {
   return (
     <div className="carousel-wrapper">
       <button onClick={goToPrevious} className="slider-left-arrow">
-        {"❰"}
+        <ArrowBackIos fontSize="large" />
       </button>
       <button onClick={goToNext} className="slider-right-arrow">
-        {"❱"}
+        <ArrowForwardIos fontSize="large" />
       </button>
 
       <Box sx={carouselStyles}>
