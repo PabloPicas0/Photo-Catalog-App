@@ -61,8 +61,7 @@ const Catalog = (props) => {
         {"❱"}
       </button>
 
-      <Box
-        sx={carouselStyles}>
+      <Box sx={carouselStyles}>
         {catalogs.map((element, idx) => {
           return (
             <Card key={idx}>

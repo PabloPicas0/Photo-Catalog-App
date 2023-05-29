@@ -13,7 +13,7 @@ export const dotStyle = {
 export const carouselStyles = {
   display: "grid",
   gridAutoFlow: "column",
-  gridAutoColumns: { xs: "100%", sm: "calc((100% / 3) - 12px)" },
+  gridAutoColumns: { xs: "100%", sm: "calc((100% / 2) - 12px)", lg: "calc((100% / 3) - 12px)" },
   gap: "16px",
   overflow: "hidden",
 };
