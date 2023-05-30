@@ -1,7 +1,7 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { ChevronLeftSharp, ChevronRightSharp } from "@mui/icons-material";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { carouselStyles, dotStyle } from "../styles/catalogsStyles";
 
@@ -10,9 +10,13 @@ const Catalog = (props) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const carouselRef = useRef(null);
+
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? catalogs.length - 1 : currentIndex - 1;
+
+    carouselRef.current.scrollLeft += -carouselRef.current.offsetWidth;
 
     setCurrentIndex(newIndex);
   };
@@ -20,6 +24,8 @@ const Catalog = (props) => {
   const goToNext = () => {
     const isLastSlide = currentIndex === catalogs.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
+
+    carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
 
     setCurrentIndex(newIndex);
   };
@@ -37,7 +43,7 @@ const Catalog = (props) => {
         <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
-      <Box sx={carouselStyles}>
+      <Box sx={carouselStyles} ref={carouselRef}>
         {catalogs.map((element, idx) => {
           return (
             <Card key={idx}>
@@ -64,7 +70,7 @@ const Catalog = (props) => {
         })}
       </Box>
 
-      <div className="dots-container">
+      <div className="carousel-dots-container">
         {catalogs.map((_, slideIdx) => {
           return (
             <div

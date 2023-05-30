@@ -16,4 +16,5 @@ export const carouselStyles = {
   gridAutoColumns: { xs: "100%", sm: "calc((100% / 2) - 9px)", lg: "calc((100% / 3) - 12px)" },
   gap: "16px",
   overflow: "hidden",
+  scrollBehavior: "smooth"
 };
