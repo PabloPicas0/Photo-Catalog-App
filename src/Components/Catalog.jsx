@@ -10,31 +10,6 @@ const Catalog = (props) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const sliders = catalogs.map((element, idx) => {
-    return (
-      <Card sx={{ maxWidth: 325 }} key={idx}>
-        <CardActionArea onClick={() => handleOpen(element)}>
-          <CardMedia
-            component={"img"}
-            sx={{ height: 140 }}
-            src={element.image}
-            title="Photo of the current catalog"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {element.catalog}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel porro dolores neque soluta illo
-              optio ea beatae recusandae veritatis, alias maiores velit id necessitatibus, culpa nihil,
-              praesentium pariatur amet sequi.
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    );
-  });
-
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? catalogs.length - 1 : currentIndex - 1;
