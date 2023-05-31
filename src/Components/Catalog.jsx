@@ -46,7 +46,7 @@ const Catalog = (props) => {
       <Box sx={carouselStyles} ref={carouselRef}>
         {catalogs.map((element, idx) => {
           return (
-            <Card key={idx}>
+            <Card sx={{scrollSnapAlign: "start"}} key={idx}>
               <CardActionArea onClick={() => handleOpen(element)}>
                 <CardMedia
                   component={"img"}
