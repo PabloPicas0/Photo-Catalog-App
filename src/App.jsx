@@ -125,7 +125,9 @@ function App() {
         className="catalogs"
         style={aboutSection}
         ref={(el) => (sectionsRef.current[0] = el)}>
-        Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
+        <p style={{ textAlign: "center" }}>
+          Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
+        </p>
       </section>
 
       <section
@@ -143,7 +145,9 @@ function App() {
         className="catalogs"
         style={contactSection}
         ref={(el) => (sectionsRef.current[2] = el)}>
-        Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
+        <p style={{ textAlign: "center" }}>
+          Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
+        </p>
       </section>
     </>
   );

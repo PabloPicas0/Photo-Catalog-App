@@ -121,6 +121,19 @@
   background-color: var(--primary-color) !important;
 }
 
+
+/* MUI break points for two cards start with 600px */
+/* So we want to hide arrows below 600px value */
+@media (max-width: 599px) {
+  .slider-left-arrow {
+    display: none;
+  }
+
+  .slider-right-arrow {
+    display: none;
+  }
+}
+
 @media (max-width: 1280px) {
   #catalogs {
     flex-direction: column;
