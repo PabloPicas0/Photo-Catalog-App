@@ -52,7 +52,7 @@ function App() {
       return Math.floor(Math.random() * (max - min) + min);
     };
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 20; i++) {
       rngInt.push({
         image: `https://picsum.photos/1920/1080?random=${i}`,
         content: [],

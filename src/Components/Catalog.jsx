@@ -70,7 +70,7 @@ const Catalog = (props) => {
         })}
       </Box>
 
-      <div className="carousel-dots-container">
+      <Box className="carousel-dots-container" sx={{display: {xs: "none", sm: "flex"}}}>
         {catalogs.map((_, slideIdx) => {
           return (
             <div
@@ -82,7 +82,7 @@ const Catalog = (props) => {
               onClick={() => goToSlide(slideIdx)}></div>
           );
         })}
-      </div>
+      </Box>
     </div>
   );
 };
