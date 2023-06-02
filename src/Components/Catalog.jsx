@@ -1,38 +1,41 @@
 import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { ChevronLeftSharp, ChevronRightSharp } from "@mui/icons-material";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
-import { carouselStyles, dotStyle } from "../styles/catalogsStyles";
+import { carouselStyles } from "../styles/catalogsStyles";
 
 const Catalog = (props) => {
   const { catalogs, handleOpen } = props;
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const carouselRef = useRef(null);
 
   const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? catalogs.length - 1 : currentIndex - 1;
-
     carouselRef.current.scrollLeft += -carouselRef.current.offsetWidth;
-
-    setCurrentIndex(newIndex);
   };
 
   const goToNext = () => {
-    const isLastSlide = currentIndex === catalogs.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-
     carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
-
-    setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIdx) => {
-    setCurrentIndex(slideIdx);
+  const handleInfiniteScroll = () => {
+    const { scrollLeft, scrollWidth, offsetWidth } = carouselRef.current;
+
+    if (scrollLeft === 0) {
+      carouselRef.current.classList.add("no-transition");
+      carouselRef.current.scrollLeft = scrollWidth - 2 * offsetWidth;
+      carouselRef.current.classList.remove("no-transition");
+    }
+
+    if (Math.ceil(scrollLeft) === scrollWidth - offsetWidth) {
+      carouselRef.current.classList.add("no-transition");
+      carouselRef.current.scrollLeft = offsetWidth;
+      carouselRef.current.classList.remove("no-transition");
+    }
   };
+  // TODO
+  // Add on left side 3 last catalogs
+  // Add on right side 3 first catalogs
 
   return (
     <div className="carousel-wrapper">
@@ -43,20 +46,22 @@ const Catalog = (props) => {
         <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
-      <Box sx={carouselStyles} className="carousel" ref={carouselRef}>
+      <Box onScroll={handleInfiniteScroll} className="carousel" sx={carouselStyles} ref={carouselRef}>
         {catalogs.map((element, idx) => {
+          const { image, catalog } = element;
+
           return (
             <Card sx={{ scrollSnapAlign: "start" }} key={idx}>
               <CardActionArea onClick={() => handleOpen(element)}>
                 <CardMedia
                   component={"img"}
                   sx={{ height: 140 }}
-                  src={element.image}
+                  src={image}
                   title="Photo of the current catalog"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {element.catalog}
+                    {catalog}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel porro dolores neque soluta
@@ -66,20 +71,6 @@ const Catalog = (props) => {
                 </CardContent>
               </CardActionArea>
             </Card>
-          );
-        })}
-      </Box>
-
-      <Box className="carousel-dots-container" sx={{ display: { xs: "none", sm: "flex" } }}>
-        {catalogs.map((_, slideIdx) => {
-          return (
-            <div
-              key={slideIdx}
-              style={{
-                ...dotStyle,
-                backgroundColor: `${currentIndex === slideIdx ? "#fff" : "transparent"}`,
-              }}
-              onClick={() => goToSlide(slideIdx)}></div>
           );
         })}
       </Box>
