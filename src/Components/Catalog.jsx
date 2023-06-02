@@ -43,7 +43,7 @@ const Catalog = (props) => {
         <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
-      <Box sx={carouselStyles} ref={carouselRef}>
+      <Box sx={carouselStyles} className="carousel" ref={carouselRef}>
         {catalogs.map((element, idx) => {
           return (
             <Card sx={{ scrollSnapAlign: "start" }} key={idx}>
