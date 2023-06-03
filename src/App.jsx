@@ -11,9 +11,30 @@ import { aboutSection, catalogsSection, contactSection } from "./styles/sectionS
 
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
+const rngInt = [];
+
+const rng = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+for (let i = 0; i < 20; i++) {
+  rngInt.push({
+    image: `https://picsum.photos/1920/1080?random=${i}`,
+    content: [],
+    catalog: `Catalog ${i}`,
+    type: types[rng(0, 6)],
+  });
+
+  for (let j = 0; j < 30; j++) {
+    rngInt[i].content.push(`https://picsum.photos/1920/1080?random=${Math.random()}`);
+  }
+}
+
 function App() {
-  const [data, setData] = useState([]);
-  const [catalogs, setCatalogs] = useState([]);
+  const [data, setData] = useState(rngInt);
   const [modal, setModal] = useState([]);
   const [filter, setFilter] = useState("");
   const [openModal, setOpenModal] = useState(false);
@@ -41,33 +62,6 @@ function App() {
       return type;
     });
   };
-
-  useEffect(() => {
-    const rngInt = [];
-
-    const rng = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-
-      return Math.floor(Math.random() * (max - min) + min);
-    };
-
-    for (let i = 0; i < 20; i++) {
-      rngInt.push({
-        image: `https://picsum.photos/1920/1080?random=${i}`,
-        content: [],
-        catalog: `Catalog ${i}`,
-        type: types[rng(0, 6)],
-      });
-
-      for (let j = 0; j < 30; j++) {
-        rngInt[i].content.push(`https://picsum.photos/1920/1080?random=${Math.random()}`);
-      }
-    }
-
-    setData(rngInt);
-    setCatalogs(rngInt);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -105,17 +99,6 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    // This if statement prevents from runing the code on first app mount
-    if (data.length !== 0) {
-      setCatalogs((prev) => {
-        const newCatalogs = filter === "" ? data : data.filter((elem) => elem.type === filter);
-
-        return newCatalogs;
-      });
-    }
-  }, [filter]);
-
   return (
     <>
       <Navbar sideNavRef={sideNavRef} />
@@ -136,7 +119,7 @@ function App() {
         className="catalogs"
         ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
-        <Catalog catalogs={catalogs} handleOpen={handleOpen} />
+        <Catalog data={data} filter={filter} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
 

@@ -28,11 +28,6 @@
   display: none;
 }
 
-/* Hide carousel transition for infinite scrolling */
-.no-transition {
-  scroll-behavior: auto !important;
-}
-
 .slider-left-arrow {
   position: absolute;
   width: 50px;

@@ -6,7 +6,9 @@ import { useRef } from "react";
 import { carouselStyles } from "../styles/catalogsStyles";
 
 const Catalog = (props) => {
-  const { catalogs, handleOpen } = props;
+  const { data, filter, handleOpen } = props;
+
+  const catalogs = filter === "" ? data : data.filter((elem) => elem.type === filter);
 
   const carouselRef = useRef(null);
 
@@ -18,25 +20,6 @@ const Catalog = (props) => {
     carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
   };
 
-  const handleInfiniteScroll = () => {
-    const { scrollLeft, scrollWidth, offsetWidth } = carouselRef.current;
-
-    if (scrollLeft === 0) {
-      carouselRef.current.classList.add("no-transition");
-      carouselRef.current.scrollLeft = scrollWidth - 2 * offsetWidth;
-      carouselRef.current.classList.remove("no-transition");
-    }
-
-    if (Math.ceil(scrollLeft) === scrollWidth - offsetWidth) {
-      carouselRef.current.classList.add("no-transition");
-      carouselRef.current.scrollLeft = offsetWidth;
-      carouselRef.current.classList.remove("no-transition");
-    }
-  };
-  // TODO
-  // Add on left side 3 last catalogs
-  // Add on right side 3 first catalogs
-
   return (
     <div className="carousel-wrapper">
       <button onClick={goToPrevious} className="slider-left-arrow slider-arrow">
@@ -46,7 +29,7 @@ const Catalog = (props) => {
         <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
-      <Box onScroll={handleInfiniteScroll} className="carousel" sx={carouselStyles} ref={carouselRef}>
+      <Box className="carousel" sx={carouselStyles} ref={carouselRef}>
         {catalogs.map((element, idx) => {
           const { image, catalog } = element;
 
