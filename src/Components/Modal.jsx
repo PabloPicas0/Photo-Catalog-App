@@ -7,7 +7,13 @@ import { modalStyle, modalCard, modalMainContent } from "../styles/modalStyles";
 const CatalogModal = (props) => {
   const { modal, openModal, handleClose } = props;
 
-  const [mainImage, setMainImage] = useState(modal[0]);
+  const [mainImage, setMainImage] = useState("");
+  const [prevModal, setPrevModal] = useState(modal);
+
+  if (modal !== prevModal) {
+    setPrevModal(modal);
+    setMainImage(modal[0]);
+  }
 
   const handleImage = (element) => {
     setMainImage(element);
