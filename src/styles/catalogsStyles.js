@@ -6,4 +6,5 @@ export const carouselStyles = {
   overflowX: "scroll",
   scrollBehavior: "smooth",
   scrollSnapType: "x mandatory",
+  scrollSnapStop: "always"
 };

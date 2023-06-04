@@ -1,7 +1,7 @@
 export const modalStyle = {
   overflowY: "scroll",
   overflowX: "hidden",
-  backdropFilter: { sm: "blur(3px)", xs: "none" },
+  backdropFilter: { xs: "none", sm: "blur(3px)" },
 };
 
 export const modalCard = { maxWidth: 645, margin: "0 auto" };
