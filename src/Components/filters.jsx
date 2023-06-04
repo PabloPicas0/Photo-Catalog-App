@@ -2,18 +2,18 @@ import { Avatar, Chip, Grid } from "@mui/material";
 
 import { types } from "../App";
 
-import { filterBorderRadius } from "../styles/filterStyles";
+import { filterBorderRadius, filterContainerStyles } from "../styles/filterStyles";
 
 const Filters = (props) => {
   const { handleFilter } = props;
 
   return (
-    <Grid container spacing={2} justifyContent={"center"} sx={{ margin: "0px" }} width={"auto"}>
+    <Grid container justifyContent={"center"} sx={{ margin: "0px" }} width={"auto"}>
       {types.map((elem, idx) => {
         const letter = elem.split("");
 
         return (
-          <Grid item key={idx}>
+          <Grid item key={idx} sx={filterContainerStyles}>
             <Chip
               key={idx}
               avatar={<Avatar>{letter[0]}</Avatar>}
