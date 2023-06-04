@@ -2,7 +2,7 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
-import { modalStyle, modalCard, modalMainContent, modalBackdropFilter } from "../styles/modalStyles";
+import { modalStyle, modalCard, modalMainContent, modalBackdropFilter, modalSecondaryContent } from "../styles/modalStyles";
 
 const CatalogModal = (props) => {
   const { modal, openModal, handleClose } = props;
@@ -39,7 +39,7 @@ const CatalogModal = (props) => {
             return (
               <Grow key={idx} in={openModal} style={{ transformOrigin: "0 0 0" }}>
                 <Grid item>
-                  <Card sx={{ maxWidth: 345 }}>
+                  <Card sx={modalSecondaryContent}>
                     <CardActionArea onClick={() => handleImage(element)}>
                       <CardMedia component={"img"} sx={{ height: 70 }} src={element} />
                     </CardActionArea>
