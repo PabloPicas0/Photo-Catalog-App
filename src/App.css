@@ -5,8 +5,8 @@
   align-items: center;
 }
 
-.catalogs {
-  min-height: 100vh;
+.sections {
+  min-height: 100svh;
   max-width: 1700px;
   margin: 0 auto;
 }

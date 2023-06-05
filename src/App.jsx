@@ -105,7 +105,7 @@ function App() {
 
       <section
         id="about"
-        className="catalogs"
+        className="sections"
         style={aboutSection}
         ref={(el) => (sectionsRef.current[0] = el)}>
         <p style={{ textAlign: "center" }}>
@@ -116,7 +116,7 @@ function App() {
       <section
         id="catalogs"
         style={catalogsSection}
-        className="catalogs"
+        className="sections"
         ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
         <Catalog data={data} filter={filter} handleOpen={handleOpen} />
@@ -125,7 +125,7 @@ function App() {
 
       <section
         id="contact"
-        className="catalogs"
+        className="sections"
         style={contactSection}
         ref={(el) => (sectionsRef.current[2] = el)}>
         <p style={{ textAlign: "center" }}>
