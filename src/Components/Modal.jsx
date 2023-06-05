@@ -2,7 +2,12 @@ import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal } from "@
 
 import { useState } from "react";
 
-import { modalStyle, modalCard, modalMainContent, modalBackdropFilter, modalSecondaryContent } from "../styles/modalStyles";
+import {
+  modalCard,
+  modalMainContent,
+  modalBackdropFilter,
+  modalSecondaryContent,
+} from "../styles/modalStyles";
 
 const CatalogModal = (props) => {
   const { modal, openModal, handleClose } = props;
@@ -20,12 +25,8 @@ const CatalogModal = (props) => {
   };
 
   return (
-    <Modal
-      open={openModal}
-      onClose={handleClose}
-      sx={modalStyle}
-      slotProps={modalBackdropFilter}>
-      <Box sx={modalMainContent}>
+    <Modal open={openModal} onClose={handleClose} slotProps={modalBackdropFilter}>
+      <Box className="disable-scroll" sx={modalMainContent}>
         <Fade in={openModal}>
           <Box sx={{ padding: "5px" }}>
             <Card sx={modalCard}>

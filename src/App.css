@@ -18,15 +18,16 @@
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.carousel {
+.disable-scroll {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.carousel::-webkit-scrollbar {
+.disable-scroll::-webkit-scrollbar {
   display: none;
 }
+
 
 .slider-left-arrow {
   position: absolute;
