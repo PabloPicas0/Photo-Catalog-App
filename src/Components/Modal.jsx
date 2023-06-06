@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import {
   modalCard,
-  modalMainContent,
+  modalContent,
   modalBackdropFilter,
   modalSecondaryContent,
 } from "../styles/modalStyles";
@@ -26,7 +26,7 @@ const CatalogModal = (props) => {
 
   return (
     <Modal open={openModal} onClose={handleClose} slotProps={modalBackdropFilter}>
-      <Box className="disable-scroll" sx={modalMainContent}>
+      <Box className="disable-scroll-bar" sx={modalContent}>
         <Fade in={openModal}>
           <Box sx={{ padding: "5px" }}>
             <Card sx={modalCard}>

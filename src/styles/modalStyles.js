@@ -12,7 +12,7 @@ export const modalBackdropFilter = {
   },
 };
 
-export const modalMainContent = {
+export const modalContent = {
   height: "100vh",
   margin: "0 auto",
   overflowY: "scroll"

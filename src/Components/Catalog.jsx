@@ -29,7 +29,7 @@ const Catalog = (props) => {
         <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
-      <Box className="disable-scroll" sx={carouselStyles} ref={carouselRef}>
+      <Box className="disable-scroll-bar" sx={carouselStyles} ref={carouselRef}>
         {catalogs.map((element, idx) => {
           const { image, catalog } = element;
 
