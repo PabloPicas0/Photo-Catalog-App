@@ -19,7 +19,7 @@ export const modalContent = {
 
 export const modalSecondaryContentContainer = {
   padding: "15px",
-  height: { xs: "calc(100% - 412px)", lg: "auto" },
+  height: { xs: "calc(100% - (412px + 60px))", lg: "auto" },
   overflowY: "scroll",
 };
 
