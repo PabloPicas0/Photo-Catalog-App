@@ -15,7 +15,12 @@ export const modalBackdropFilter = {
 export const modalContent = {
   height: "100vh",
   margin: "0 auto",
-  overflowY: "scroll"
+};
+
+export const modalSecondaryContentContainer = {
+  padding: "15px",
+  height: { xs: "calc(100% - 412px)", lg: "auto" },
+  overflowY: "scroll",
 };
 
 export const modalSecondaryContent = {
