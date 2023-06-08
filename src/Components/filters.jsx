@@ -2,7 +2,7 @@ import { Avatar, Chip, Grid } from "@mui/material";
 
 import { types } from "../App";
 
-import { filterBorderRadius, filterContainerStyles } from "../styles/filterStyles";
+import { filterElementStyles, filterWrapperStyles } from "../styles/filterStyles";
 
 const Filters = (props) => {
   const { handleFilter } = props;
@@ -13,13 +13,12 @@ const Filters = (props) => {
         const letter = elem.split("");
 
         return (
-          <Grid item key={idx} sx={filterContainerStyles}>
+          <Grid item key={idx} sx={filterWrapperStyles}>
             <Chip
               key={idx}
               avatar={<Avatar>{letter[0]}</Avatar>}
               label={elem}
-              sx={filterBorderRadius}
-              color="warning"
+              sx={filterElementStyles}
               onClick={() => handleFilter(elem)}
             />
           </Grid>
