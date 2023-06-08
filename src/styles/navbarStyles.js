@@ -14,6 +14,20 @@ export const appBarIcon = {
   pointerEvents: "auto",
 };
 
+export const appBarIconContainer = {
+  height: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  gap: "40px",
+};
+
+export const appBarIconContent = { 
+  fontSize: "2.5rem", 
+  fontWeight: 500
+};
+
 export const mediaBarStyle = {
   position: "fixed",
   bottom: 0,

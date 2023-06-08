@@ -5,8 +5,6 @@ import {
   IconButton,
   Link,
   Toolbar,
-  Menu,
-  MenuItem,
   Box,
   ButtonGroup,
   Dialog,
@@ -14,6 +12,8 @@ import {
 
 import {
   appBarIcon,
+  appBarIconContainer,
+  appBarIconContent,
   appBarLinks,
   appBarStyle,
   mediaBarLinksStyle,
@@ -49,8 +49,12 @@ const Navbar = (props) => {
   return (
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
-        <Toolbar sx={{ justifyContent: "space-between"}}>
-          <Link variant="h6" href="/Photo-Catalog-App/" underline="none" sx={{...mediaBarLinksStyle, display: "flex", alignItems: "center", marginTop: "5px"}}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
+          <Link
+            variant="h6"
+            href="/Photo-Catalog-App/"
+            underline="none"
+            sx={{ ...mediaBarLinksStyle, display: "flex", alignItems: "center", marginTop: "5px" }}>
             <img alt="sma logo" title="Logo of the site" src="/Photo-Catalog-App/Images/lgg.png" />
           </Link>
 
@@ -73,15 +77,24 @@ const Navbar = (props) => {
           </IconButton>
 
           <Dialog id="nav-menu" fullScreen open={openNav} onClose={handleCloseNav}>
-            {links.map((link) => {
-              const anhor = link.toLowerCase();
+            <Box sx={appBarIconContainer}>
+              {links.map((link) => {
+                const anhor = link.toLowerCase();
 
-              return (
-                  <Link key={link} textAlign={"center"} underline="none" color={"black"} href={`#${anhor}`}>
+                return (
+                  <Link
+                    key={link}
+                    textAlign={"center"}
+                    sx={appBarIconContent}
+                    underline="none"
+                    color={"black"}
+                    href={`#${anhor}`}
+                    onClick={handleCloseNav}>
                     {link}
                   </Link>
-              );
-            })}
+                );
+              })}
+            </Box>
           </Dialog>
         </Toolbar>
       </AppBar>
