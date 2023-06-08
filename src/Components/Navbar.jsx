@@ -1,19 +1,10 @@
-import { MenuOutlined, FacebookSharp, Instagram, Twitter, YouTube } from "@mui/icons-material";
-import {
-  AppBar,
-  Breadcrumbs,
-  IconButton,
-  Link,
-  Toolbar,
-  Box,
-  ButtonGroup,
-  Dialog,
-} from "@mui/material";
+import { MenuOutlined, FacebookSharp, Instagram, Twitter, YouTube, CloseSharp } from "@mui/icons-material";
+import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Box, ButtonGroup, Dialog } from "@mui/material";
 
 import {
   appBarIcon,
-  appBarIconContainer,
-  appBarIconContent,
+  navigationContainer,
+  navigationContent,
   appBarLinks,
   appBarStyle,
   mediaBarLinksStyle,
@@ -21,6 +12,7 @@ import {
   pageNumber,
   sideNavLink,
   sideNavigation,
+  closeNavigationIcon,
 } from "../styles/navbarStyles";
 
 import { useState } from "react";
@@ -38,7 +30,7 @@ const Navbar = (props) => {
     <YouTube className="social-link" />,
   ];
 
-  const handleOpenNav = (event) => {
+  const handleOpenNav = () => {
     setOpenNav(true);
   };
 
@@ -77,7 +69,11 @@ const Navbar = (props) => {
           </IconButton>
 
           <Dialog id="nav-menu" fullScreen open={openNav} onClose={handleCloseNav}>
-            <Box sx={appBarIconContainer}>
+            <Box sx={navigationContainer}>
+              <IconButton onClick={handleCloseNav} sx={closeNavigationIcon}>
+                <CloseSharp />
+              </IconButton>
+
               {links.map((link) => {
                 const anhor = link.toLowerCase();
 
@@ -85,7 +81,7 @@ const Navbar = (props) => {
                   <Link
                     key={link}
                     textAlign={"center"}
-                    sx={appBarIconContent}
+                    sx={navigationContent}
                     underline="none"
                     color={"black"}
                     href={`#${anhor}`}
@@ -94,6 +90,21 @@ const Navbar = (props) => {
                   </Link>
                 );
               })}
+
+              <ButtonGroup
+                variant="contained"
+                aria-label="primary button group"
+                sx={{ gap: "30px", boxShadow: "none", position: "absolute", bottom: 5 }}>
+                {incons.map((icon, idx) => {
+                  return (
+                    <Link href="https://www.facebook.com/adam.pytel.501" target="_blank" key={idx}>
+                      <IconButton size="large" aria-label="YouTube" sx={mediaBarLinksStyle}>
+                        {icon}
+                      </IconButton>
+                    </Link>
+                  );
+                })}
+              </ButtonGroup>
             </Box>
           </Dialog>
         </Toolbar>

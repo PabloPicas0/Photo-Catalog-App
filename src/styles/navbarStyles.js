@@ -6,7 +6,10 @@ export const appBarStyle = {
   pointerEvents: "none",
 };
 
-export const appBarLinks = { display: { sm: "flex", xs: "none" }, pointerEvents: "auto" };
+export const appBarLinks = {
+  display: { sm: "flex", xs: "none" },
+  pointerEvents: "auto",
+};
 
 export const appBarIcon = {
   color: "rgba(255, 255, 255, 0.87);",
@@ -14,19 +17,37 @@ export const appBarIcon = {
   pointerEvents: "auto",
 };
 
-export const appBarIconContainer = {
+export const navigationContainer = {
+  position: "relative",
   height: "100%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+  backgroundColor: "rgba(0, 0, 0, 0.87)",
   gap: "40px",
 };
 
-export const appBarIconContent = { 
-  fontSize: "2.5rem", 
-  fontWeight: 500
+export const navigationContent = {
+  fontSize: "2.5rem",
+  fontWeight: 500,
+  color: "whitesmoke",
 };
+
+export const closeNavigationIcon = { 
+  position: "absolute", 
+  top: "29px",
+  right: "38px",
+  color: "goldenrod" 
+};
+
+
+
+
+
+
+
+
 
 export const mediaBarStyle = {
   position: "fixed",
@@ -41,7 +62,10 @@ export const mediaBarStyle = {
   pointerEvents: "none",
 };
 
-export const mediaBarLinksStyle = { color: "rgba(218, 165, 32, 0.87)", pointerEvents: "auto" };
+export const mediaBarLinksStyle = {
+  color: "rgba(218, 165, 32, 0.87)",
+  pointerEvents: "auto",
+};
 
 export const sideNavigation = {
   display: { xs: "none", lg: "flex" },
