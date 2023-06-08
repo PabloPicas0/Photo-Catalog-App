@@ -9,6 +9,7 @@ import {
   MenuItem,
   Box,
   ButtonGroup,
+  Dialog,
 } from "@mui/material";
 
 import {
@@ -27,7 +28,7 @@ import { useState } from "react";
 const Navbar = (props) => {
   const { sideNavRef } = props;
 
-  const [openNav, setOpenNav] = useState(null);
+  const [openNav, setOpenNav] = useState(false);
 
   const links = ["About", "Catalogs", "Contact"];
   const incons = [
@@ -38,11 +39,11 @@ const Navbar = (props) => {
   ];
 
   const handleOpenNav = (event) => {
-    setOpenNav(event.currentTarget);
+    setOpenNav(true);
   };
 
   const handleCloseNav = () => {
-    setOpenNav(null);
+    setOpenNav(false);
   };
 
   return (
@@ -71,19 +72,17 @@ const Navbar = (props) => {
             <MenuOutlined />
           </IconButton>
 
-          <Menu id="nav-menu" anchorEl={openNav} keepMounted open={Boolean(openNav)} onClose={handleCloseNav}>
+          <Dialog id="nav-menu" fullScreen open={openNav} onClose={handleCloseNav}>
             {links.map((link) => {
               const anhor = link.toLowerCase();
 
               return (
-                <MenuItem key={link} onClick={handleCloseNav}>
-                  <Link textAlign={"center"} underline="none" color={"black"} href={`#${anhor}`}>
+                  <Link key={link} textAlign={"center"} underline="none" color={"black"} href={`#${anhor}`}>
                     {link}
                   </Link>
-                </MenuItem>
               );
             })}
-          </Menu>
+          </Dialog>
         </Toolbar>
       </AppBar>
 

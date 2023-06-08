@@ -25,8 +25,7 @@
 
 body {
   margin: 0;
-  background-color: var(--body-fallback-background);
-  background-image: var(--body-background);
+  background-image: var(--body-background, --body-fallback-background);
 }
 
 span {
