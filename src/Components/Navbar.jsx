@@ -45,9 +45,6 @@ const Navbar = (props) => {
       closeMobileNavigation.current.style.position = "absolute"
       closeMobileNavigation.current.style.top = `${top}px`;
       closeMobileNavigation.current.style.left = `${left}px`;
-
-      console.log(openMobileNavigation.current.getBoundingClientRect());
-      console.log(closeMobileNavigation.current.style);
     }
 
     setOpenNav(true);
@@ -56,7 +53,7 @@ const Navbar = (props) => {
   const handleCloseNav = () => {
     setOpenNav(false);
   };
-  
+
   return (
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
