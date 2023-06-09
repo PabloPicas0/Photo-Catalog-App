@@ -28,6 +28,7 @@ export const navigationContainer = {
   flexDirection: "column",
   backgroundColor: "rgba(0, 0, 0, 0.87)",
   gap: "40px",
+  overflow: "hidden"
 };
 
 export const navigationContent = {
@@ -37,9 +38,6 @@ export const navigationContent = {
 };
 
 export const closeNavigationIcon = {
-  position: "absolute",
-  top: 29,
-  right: 38,
   color: "goldenrod",
 };
 

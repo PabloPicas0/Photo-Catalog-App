@@ -15,12 +15,17 @@ import {
   closeNavigationIcon,
 } from "../styles/navbarStyles";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+
+let didInit = false;
 
 const Navbar = (props) => {
   const { sideNavRef } = props;
 
   const [openNav, setOpenNav] = useState(false);
+
+  const openMobileNavigation = useRef(null);
+  const closeMobileNavigation = useRef(null);
 
   const links = ["About", "Catalogs", "Contact"];
   const incons = [
@@ -31,16 +36,27 @@ const Navbar = (props) => {
   ];
 
   const handleOpenNav = () => {
+    // Only once at first click align close btn with hamburger btn
+    if (!didInit) {
+      didInit = true;
+
+      const { top, left } = openMobileNavigation.current.getBoundingClientRect();
+
+      closeMobileNavigation.current.style.position = "absolute"
+      closeMobileNavigation.current.style.top = `${top}px`;
+      closeMobileNavigation.current.style.left = `${left}px`;
+
+      console.log(openMobileNavigation.current.getBoundingClientRect());
+      console.log(closeMobileNavigation.current.style);
+    }
+
     setOpenNav(true);
   };
 
   const handleCloseNav = () => {
     setOpenNav(false);
   };
-
-  // TODO
-  // On mobile align exit button with hamburger button
-
+  
   return (
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
@@ -67,15 +83,25 @@ const Navbar = (props) => {
           </Breadcrumbs>
 
           {/* Mobile version */}
-          <IconButton size="large" aria-label="open-navigation" onClick={handleOpenNav} sx={appBarIcon}>
+          <IconButton
+            ref={openMobileNavigation}
+            size="large"
+            aria-label="open-navigation"
+            onClick={handleOpenNav}
+            sx={appBarIcon}>
             <MenuOutlined />
           </IconButton>
 
-          <Dialog id="nav-menu" fullScreen open={openNav} onClose={handleCloseNav}>
+          <Dialog id="nav-menu" fullScreen keepMounted open={openNav} onClose={handleCloseNav}>
             <Box sx={navigationContainer}>
-                <IconButton onClick={handleCloseNav} sx={closeNavigationIcon}>
-                  <CloseSharp />
-                </IconButton>
+              <IconButton
+                ref={closeMobileNavigation}
+                size="large"
+                aria-label="close-navigation"
+                onClick={handleCloseNav}
+                sx={closeNavigationIcon}>
+                <CloseSharp />
+              </IconButton>
 
               {links.map((link) => {
                 const anhor = link.toLowerCase();
