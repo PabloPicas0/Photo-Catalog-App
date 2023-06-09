@@ -38,6 +38,9 @@ const Navbar = (props) => {
     setOpenNav(false);
   };
 
+  // TODO
+  // On mobile align exit button with hamburger button
+
   return (
     <>
       <AppBar component={"nav"} sx={appBarStyle}>
@@ -70,9 +73,9 @@ const Navbar = (props) => {
 
           <Dialog id="nav-menu" fullScreen open={openNav} onClose={handleCloseNav}>
             <Box sx={navigationContainer}>
-              <IconButton onClick={handleCloseNav} sx={closeNavigationIcon}>
-                <CloseSharp />
-              </IconButton>
+                <IconButton onClick={handleCloseNav} sx={closeNavigationIcon}>
+                  <CloseSharp />
+                </IconButton>
 
               {links.map((link) => {
                 const anhor = link.toLowerCase();
@@ -111,7 +114,7 @@ const Navbar = (props) => {
       </AppBar>
 
       {/* Side navigation */}
-      <Box component={"nav"} className="side-navigation" sx={sideNavigation} ref={sideNavRef}>
+      <Box component={"aside"} className="side-navigation" sx={sideNavigation} ref={sideNavRef}>
         <Box sx={pageNumber}>
           <span id="counter">01</span>
           <div className="div-block"></div>

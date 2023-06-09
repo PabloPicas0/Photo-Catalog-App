@@ -1,3 +1,5 @@
+// Navbar styles section
+
 export const appBarStyle = {
   backgroundColor: "transparent",
   padding: "20px 6vw",
@@ -34,20 +36,14 @@ export const navigationContent = {
   color: "whitesmoke",
 };
 
-export const closeNavigationIcon = { 
-  position: "absolute", 
-  top: "29px",
-  right: "38px",
-  color: "goldenrod" 
+export const closeNavigationIcon = {
+  position: "absolute",
+  top: 29,
+  right: 38,
+  color: "goldenrod",
 };
 
-
-
-
-
-
-
-
+// Bar with social media styles section
 
 export const mediaBarStyle = {
   position: "fixed",
@@ -66,6 +62,8 @@ export const mediaBarLinksStyle = {
   color: "rgba(218, 165, 32, 0.87)",
   pointerEvents: "auto",
 };
+
+// Side navigation styles section
 
 export const sideNavigation = {
   display: { xs: "none", lg: "flex" },
