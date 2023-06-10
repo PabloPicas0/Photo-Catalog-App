@@ -2,6 +2,13 @@ export const modalCard = {
   maxWidth: 645,
   margin: "0 auto",
   border: "1px solid grey",
+  position: "relative"
+};
+
+export const closeModalIcon = { 
+  position: "absolute", 
+  right: 5, 
+  color: "#040785" 
 };
 
 export const modalBackdropFilter = {

@@ -1,4 +1,4 @@
-import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, Modal, ThemeProvider, createTheme } from "@mui/material";
+import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, IconButton, Modal, ThemeProvider, createTheme } from "@mui/material";
 
 import { useState } from "react";
 
@@ -8,7 +8,9 @@ import {
   modalBackdropFilter,
   modalSecondaryContent,
   modalSecondaryContentContainer,
+  closeModalIcon,
 } from "../styles/modalStyles";
+import { Close } from "@mui/icons-material";
 
 const theme = createTheme({
   breakpoints: {
@@ -44,7 +46,15 @@ const CatalogModal = (props) => {
           <Fade in={openModal}>
             <Box sx={{ padding: "5px" }}>
               <Card sx={modalCard}>
-                <CardMedia component={"img"} sx={{ height: 400 }} src={mainImage} />
+                <IconButton
+                  onClick={handleClose}
+                  size="large"
+                  aria-label="close-modal"
+                  sx={closeModalIcon}>
+                  <Close />
+                </IconButton>
+                
+                <CardMedia component={"img"} sx={{ height: 400 }} src={mainImage} alt="Main image" />
               </Card>
             </Box>
           </Fade>
@@ -61,7 +71,7 @@ const CatalogModal = (props) => {
                   <Grid item>
                     <Card sx={modalSecondaryContent}>
                       <CardActionArea onClick={() => handleImage(element)}>
-                        <CardMedia component={"img"} sx={{ height: 70 }} src={element} />
+                        <CardMedia component={"img"} sx={{ height: 70 }} src={element} alt="Secondary images"/>
                       </CardActionArea>
                     </Card>
                   </Grid>
