@@ -8,6 +8,7 @@ import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
 
 import { aboutSection, catalogsSection, contactSection } from "./styles/sectionStyles";
+import About from "./Components/About";
 
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
@@ -108,9 +109,7 @@ function App() {
         className="sections"
         style={aboutSection}
         ref={(el) => (sectionsRef.current[0] = el)}>
-        <p style={{ textAlign: "center" }}>
-          Tu trzeba napisać coś o firmie, czym się zajmuje itp. Musi to być w miarę krótkie.
-        </p>
+        <About />
       </section>
 
       <section
