@@ -2,6 +2,7 @@ import { Box, Card, CardActionArea, CardContent, CardMedia, Typography } from "@
 import { ChevronLeftSharp, ChevronRightSharp } from "@mui/icons-material";
 
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
 import { carouselStyles } from "../styles/catalogsStyles";
 
@@ -60,5 +61,11 @@ const Catalog = (props) => {
     </div>
   );
 };
+
+Catalog.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+  filter: PropTypes.string,
+  handleOpen: PropTypes.func
+}
 
 export default Catalog;

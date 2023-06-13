@@ -1,6 +1,7 @@
 import { Box, Card, CardActionArea, CardMedia, Fade, Grid, Grow, IconButton, Modal, ThemeProvider, createTheme } from "@mui/material";
 
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import {
   modalCard,
@@ -10,6 +11,7 @@ import {
   modalSecondaryContentContainer,
   closeModalIcon,
 } from "../styles/modalStyles";
+
 import { Close } from "@mui/icons-material";
 
 const theme = createTheme({
@@ -84,5 +86,11 @@ const CatalogModal = (props) => {
     </ThemeProvider>
   );
 };
+
+CatalogModal.propTypes = {
+  modal: PropTypes.array,
+  openModal: PropTypes.bool,
+  handleClose: PropTypes.func
+}
 
 export default CatalogModal;

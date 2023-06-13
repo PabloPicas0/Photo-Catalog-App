@@ -2,6 +2,8 @@ import { Avatar, Chip, Grid } from "@mui/material";
 
 import { types } from "../App";
 
+import PropTypes from "prop-types";
+
 import { filterElementStyles, filterWrapperStyles } from "../styles/filterStyles";
 
 const Filters = (props) => {
@@ -27,5 +29,9 @@ const Filters = (props) => {
     </Grid>
   );
 };
+
+Filters.propTypes = {
+  handleFilter: PropTypes.func
+}
 
 export default Filters;

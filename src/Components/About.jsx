@@ -4,7 +4,7 @@ const About = () => {
   const userLanguage = navigator.userLanguage || navigator.language;
 
   const handleLanguage = (userLanguage) => {
-    if (!languages.hasOwnProperty(userLanguage)) {
+    if (!Object.prototype.hasOwnProperty.call(languages, userLanguage)) {
       return languages["en"];
     }
 

@@ -29,10 +29,10 @@ const Navbar = (props) => {
 
   const links = ["About", "Catalogs", "Contact"];
   const incons = [
-    <FacebookSharp className="social-link" />,
-    <Twitter className="social-link" />,
-    <Instagram className="social-link" />,
-    <YouTube className="social-link" />,
+    <FacebookSharp key={"F"} className="social-link" />,
+    <Twitter key={"T"} className="social-link" />,
+    <Instagram key={"I"} className="social-link" />,
+    <YouTube key={"Y"} className="social-link" />,
   ];
 
   const handleOpenNav = () => {
