@@ -7,7 +7,7 @@ import Catalog from "./Components/Catalog";
 import CatalogModal from "./Components/Modal";
 import Navbar from "./Components/Navbar";
 
-import { aboutSection, catalogsSection, contactSection } from "./styles/sectionStyles";
+import { aboutSection, contactSection } from "./styles/sectionStyles";
 import About from "./Components/About";
 
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
@@ -71,25 +71,23 @@ function App() {
           const { current } = sectionsRef; // Destruct the ref object that have array of all sections
 
           const sideCounter = sideNavRef.current.querySelector("#counter"); // Pick element with number of current section
-          const sideDot = sideNavRef.current.querySelector(`a[href='#${entry.target.id}']`);
-
+          const previousDot = sideNavRef.current.querySelector(".active-dot");
+          const nextDot = sideNavRef.current.querySelector(`a[href='#${entry.target.id}']`);
           // Here just search array of all sections to get index of current intersecting element
           const currentSection = current.indexOf(entry.target);
 
           if (entry.isIntersecting) {
             sideCounter.textContent = `0${currentSection + 1}`; // If entry is intersecting change number of current section using its section index + 1
-            sideDot.classList.add("active-dot");
-          } else {
-            sideDot.classList.remove("active-dot");
+
+            previousDot?.classList.remove("active-dot");
+
+            nextDot.classList.add("active-dot");
           }
         });
       },
       // IMPORTANT!!!
-      // There is a bug where two dots are active
-      // But it shouldnt never be percived due to its 1px wide
-      // If you want to replicate it you need to trun on device emulation and search for
-      // Exact px between sections. With scroll bar its impossible.
-      // If you want to add new section remember to give her 1px margin top
+      // There is a bug where previous dot is active and next one not
+      // But it shouldnt never be percived due to noone scrolls pixel by pixel
       { rootMargin: "-25% 0px -75% 0px" }
     );
 
@@ -112,11 +110,7 @@ function App() {
         <About />
       </section>
 
-      <section
-        id="catalogs"
-        style={catalogsSection}
-        className="sections"
-        ref={(el) => (sectionsRef.current[1] = el)}>
+      <section id="catalogs" className="sections" ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
         <Catalog data={data} filter={filter} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />

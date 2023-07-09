@@ -20,11 +20,9 @@ export const aboutDescripton = {
   margin: 0,
 };
 
-export const catalogsSection = { marginTop: "1px" };
 
 export const contactSection = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  marginTop: "1px",
 };
