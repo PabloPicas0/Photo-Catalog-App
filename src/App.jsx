@@ -108,6 +108,10 @@ function App() {
         style={aboutSection}
         ref={(el) => (sectionsRef.current[0] = el)}>
         <About />
+
+        <picture>
+          <img src="https://pngimg.com/d/industrial_worker_PNG11414.png" alt="construction worker"/>
+        </picture>
       </section>
 
       <section id="catalogs" className="sections" ref={(el) => (sectionsRef.current[1] = el)}>

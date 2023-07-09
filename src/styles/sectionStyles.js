@@ -1,7 +1,6 @@
 export const aboutSection = {
   display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
+  justifyContent: "space-around",
   alignItems: "center",
 };
 
@@ -11,6 +10,7 @@ export const aboutTitle = {
   fontWeight: 700,
   marginTop: "20px",
   marginBottom: "10px",
+  textAlign: "center"
 };
 
 export const aboutDescripton = {
