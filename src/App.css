@@ -141,6 +141,16 @@
   background-color: var(--primary-color) !important;
 }
 
+.contact-card {
+  transform: scale(1);
+  transition: transform 500ms ease-in-out !important;
+}
+
+.contact-card:hover {
+  transform: scale(1.1);
+  transition: transform 500ms ease-in-out;
+}
+
 /* MUI break points for two cards start with 600px */
 /* So we want to hide arrows below 600px value */
 @media (max-width: 599px) {

@@ -10,6 +10,9 @@ import Navbar from "./Components/Navbar";
 import { aboutSection, contactSection } from "./styles/sectionStyles";
 import About from "./Components/About";
 
+import { Avatar, Box, Card, CardContent, Typography } from "@mui/material";
+import { EmailSharp, LocationOnSharp, Phone } from "@mui/icons-material";
+
 export const types = ["Hats", "Glasses", "Jacket", "Gloves", "Pants", "Shoes"];
 
 const rngInt = [];
@@ -98,6 +101,11 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  // TODO
+  // Improve responsivness of site
+  // Create contact cards
+  // Abstract contact cards to a separate component
+
   return (
     <>
       <Navbar sideNavRef={sideNavRef} />
@@ -110,7 +118,7 @@ function App() {
         <About />
 
         <picture>
-          <img src="https://pngimg.com/d/industrial_worker_PNG11414.png" alt="construction worker"/>
+          <img src="https://pngimg.com/d/industrial_worker_PNG11414.png" alt="construction worker" />
         </picture>
       </section>
 
@@ -125,9 +133,108 @@ function App() {
         className="sections"
         style={contactSection}
         ref={(el) => (sectionsRef.current[2] = el)}>
-        <p style={{ textAlign: "center" }}>
-          Sekcja z kontaktem. Możesz tu dać nwm nr telefonu, adress email czy obydwa albo jeszcze coś innego.
-        </p>
+        <Card
+          className="contact-card"
+          sx={{ width: "345px", height: "250px", overflow: "visible", borderRadius: "20px" }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Avatar
+              sx={{
+                width: "80px",
+                height: "80px",
+                transform: "translate(0px, -35px)",
+                border: "1px solid #daa520",
+                backgroundImage: "linear-gradient(320deg, #f1c50e, #ff5b16)",
+              }}
+              aria-label="Email">
+              <EmailSharp sx={{ color: "black" }} fontSize="large" />
+            </Avatar>
+          </Box>
+
+          <CardContent sx={{ textAlign: "center" }}>
+            <Typography
+              textTransform={"uppercase"}
+              fontSize={"1.375rem"}
+              lineHeight={1.1}
+              fontWeight={400}
+              fontFamily={"Montserrat"}>
+              E-mail
+            </Typography>
+            <Typography fontFamily={"Open Sans"} marginY={"12px"}>
+              Our team is here to assist you
+            </Typography>
+            <Typography>hey@ourcompany.com</Typography>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="contact-card"
+          sx={{ width: "345px", height: "250px", overflow: "visible", borderRadius: "20px" }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Avatar
+              sx={{
+                width: "80px",
+                height: "80px",
+                transform: "translate(0px, -35px)",
+                border: "1px solid #daa520",
+                backgroundImage: "linear-gradient(320deg, #f1c50e, #ff5b16)",
+              }}
+              aria-label="Email">
+              <LocationOnSharp sx={{ color: "black" }} fontSize="large" />
+            </Avatar>
+          </Box>
+
+          <CardContent sx={{ textAlign: "center" }}>
+            <Typography
+              textTransform={"uppercase"}
+              fontSize={"1.375rem"}
+              lineHeight={1.1}
+              fontWeight={400}
+              fontFamily={"Montserrat"}>
+              Office
+            </Typography>
+            <Typography fontFamily={"Open Sans"} marginY={"12px"}>
+              Come and visit us at our headquarters.
+            </Typography>
+            <Typography>
+              121 Rock Sreet, 21 Avenue,
+              <br />
+              Nowy Jork, NY 92103-9000
+            </Typography>
+          </CardContent>
+        </Card>
+
+        <Card
+          className="contact-card"
+          sx={{ width: "345px", height: "250px", overflow: "visible", borderRadius: "20px" }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Avatar
+              sx={{
+                width: "80px",
+                height: "80px",
+                transform: "translate(0px, -35px)",
+                border: "1px solid #daa520",
+                backgroundImage: "linear-gradient(320deg, #f1c50e, #ff5b16)",
+              }}
+              aria-label="Email">
+              <Phone sx={{ color: "black" }} fontSize="large" />
+            </Avatar>
+          </Box>
+
+          <CardContent sx={{ textAlign: "center" }}>
+            <Typography
+              textTransform={"uppercase"}
+              fontSize={"1.375rem"}
+              lineHeight={1.1}
+              fontWeight={400}
+              fontFamily={"Montserrat"}>
+              Telephone
+            </Typography>
+            <Typography fontFamily={"Open Sans"} marginY={"12px"}>
+              From Monday to Friday, from 8:00 AM to 5:00 PM
+            </Typography>
+            <Typography>+1 555 000-000</Typography>
+          </CardContent>
+        </Card>
       </section>
     </>
   );

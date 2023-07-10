@@ -25,4 +25,5 @@ export const contactSection = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  gap: "30px"
 };
