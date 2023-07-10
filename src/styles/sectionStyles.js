@@ -1,6 +1,6 @@
 export const aboutSection = {
   display: "flex",
-  justifyContent: "space-around",
+  justifyContent: "space-evenly",
   alignItems: "center",
 };
 

@@ -36,7 +36,7 @@ const Navbar = (props) => {
   ];
 
   const handleOpenNav = () => {
-    // Only once at first click align close btn with hamburger btn
+    // Run Only once at first click align close btn with hamburger btn
     if (!didInit) {
       didInit = true;
 
