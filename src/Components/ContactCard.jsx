@@ -7,7 +7,7 @@ const ContactCard = (props) => {
     <Card
       className="contact-card"
       sx={{
-        width: "345px",
+        width: { xs: "300px", sm: "345px" },
         height: "250px",
         overflow: "visible",
         borderRadius: "20px",

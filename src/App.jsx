@@ -101,10 +101,7 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
-
-  // TODO
-  // Improve responsivness of site
-
+  
   return (
     <>
       <Navbar sideNavRef={sideNavRef} />
