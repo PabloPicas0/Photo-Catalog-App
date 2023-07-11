@@ -1,5 +1,15 @@
 import { MenuOutlined, FacebookSharp, Instagram, Twitter, YouTube, CloseSharp } from "@mui/icons-material";
-import { AppBar, Breadcrumbs, IconButton, Link, Toolbar, Box, ButtonGroup, Dialog } from "@mui/material";
+import {
+  AppBar,
+  Breadcrumbs,
+  IconButton,
+  Link,
+  Toolbar,
+  Box,
+  ButtonGroup,
+  Dialog,
+  Collapse,
+} from "@mui/material";
 
 import {
   appBarIcon,
@@ -22,6 +32,7 @@ let didInit = false;
 const Navbar = (props) => {
   const { sideNavRef } = props;
 
+  const [openDesktopNav, setOpenDesktopNav] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
   const openMobileNavigation = useRef(null);
@@ -42,7 +53,7 @@ const Navbar = (props) => {
 
       const { top, left } = openMobileNavigation.current.getBoundingClientRect();
 
-      closeMobileNavigation.current.style.position = "absolute"
+      closeMobileNavigation.current.style.position = "absolute";
       closeMobileNavigation.current.style.top = `${top}px`;
       closeMobileNavigation.current.style.left = `${left}px`;
     }
@@ -67,17 +78,33 @@ const Navbar = (props) => {
           </Link>
 
           {/* Desktop version */}
-          <Breadcrumbs aria-label="navigation" separator="" sx={appBarLinks}>
-            {links.map((link) => {
-              const anhor = link.toLowerCase();
+          <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+            <Collapse
+              in={openDesktopNav}
+              orientation="horizontal"
+              sx={{ marginRight: "20px" }}
+              classes={{ wrapper: "colapse-wrapper", wrapperInner: "colapse-wrapper-inner" }}>
+              <Breadcrumbs aria-label="navigation" separator="" sx={appBarLinks}>
+                {links.map((link) => {
+                  const anhor = link.toLowerCase();
 
-              return (
-                <Link key={link} underline="none" href={`#${anhor}`} className="link">
-                  {link}
-                </Link>
-              );
-            })}
-          </Breadcrumbs>
+                  return (
+                    <Link key={link} underline="none" href={`#${anhor}`} className="link">
+                      {link}
+                    </Link>
+                  );
+                })}
+              </Breadcrumbs>
+            </Collapse>
+
+            <IconButton
+              size="large"
+              aria-label="open-navigation"
+              sx={{ pointerEvents: "auto" }}
+              onClick={() => setOpenDesktopNav((prev) => !prev)}>
+              <MenuOutlined htmlColor="white" />
+            </IconButton>
+          </Box>
 
           {/* Mobile version */}
           <IconButton

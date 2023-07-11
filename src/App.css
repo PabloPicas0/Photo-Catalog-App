@@ -153,6 +153,14 @@
   transition: transform 500ms ease-in-out;
 }
 
+.colapse-wrapper {
+  display: block !important; 
+}
+
+.colapse-wrapper-inner {
+  width: 353px !important; 
+}
+
 /* MUI break points for two cards start with 600px */
 /* So we want to hide arrows below 600px value */
 @media (max-width: 599px) {
