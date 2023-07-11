@@ -21,14 +21,19 @@ const About = () => {
       <h1 style={aboutTitle}>About us</h1>
 
       <Accordion
-        sx={{ maxWidth: "600px", backgroundColor: "transparent", color: "white", boxShadow: "none" }}>
+        sx={{
+          maxWidth: "600px",
+          backgroundColor: "transparent",
+          color: "white",
+          boxShadow: "none",
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreSharp sx={{ color: "white" }} />}
           aria-controls="OUR STORY-content"
           id="OUR STORY-header">
           <Typography>OUR STORY - FROM THE BEGINNING TO THE PRESENT</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ textAlign: "justify" }}>
           <Typography>
             With experience in the protective clothing industry, our team have gained valuable expertise and
             collaborated with leading brands in the field.
@@ -47,14 +52,19 @@ const About = () => {
       </Accordion>
 
       <Accordion
-        sx={{ maxWidth: "600px", backgroundColor: "transparent", color: "white", boxShadow: "none" }}>
+        sx={{
+          maxWidth: "600px",
+          backgroundColor: "transparent",
+          color: "white",
+          boxShadow: "none",
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreSharp sx={{ color: "white" }} />}
           aria-controls="OUR STORY-content"
           id="OUR STORY-header">
           <Typography>OUR MISSION - WHAT'S OUR MAIN GOAL PURPOSE</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ textAlign: "justify" }}>
           <Typography>
             At SMA, our main mission is to provide our customers with high-quality protective clothing that
             combines excellent protection, comfort, and style. Our primary goal is to protect and support our
@@ -74,14 +84,19 @@ const About = () => {
       </Accordion>
 
       <Accordion
-        sx={{ maxWidth: "600px", backgroundColor: "transparent", color: "white", boxShadow: "none" }}>
+        sx={{
+          maxWidth: "600px",
+          backgroundColor: "transparent",
+          color: "white",
+          boxShadow: "none",
+        }}>
         <AccordionSummary
           expandIcon={<ExpandMoreSharp sx={{ color: "white" }} />}
           aria-controls="OUR STORY-content"
           id="OUR STORY-header">
           <Typography>OUR VISION - WHERE DO WE SEE OURSELVES IN THE FUTURE</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails sx={{ textAlign: "justify" }}>
           <Typography>
             At SMA, our vision is to become a leading provider of protective clothing, setting new trends and
             standards in the industry. We see ourselves not only as sellers but also as innovators who
@@ -99,7 +114,6 @@ const About = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      {/* <p style={aboutDescripton}>{description}</p> */}
     </div>
   );
 };

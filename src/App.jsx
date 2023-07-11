@@ -101,7 +101,7 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
-  
+
   return (
     <>
       <Navbar sideNavRef={sideNavRef} />
@@ -113,16 +113,21 @@ function App() {
         ref={(el) => (sectionsRef.current[0] = el)}>
         <About />
 
-        <Box sx={{ display: { xs: "none", md: "block" } }}>
+        <Box component={"picture"} sx={{ display: { xs: "none", md: "block" } }}>
           <img src="https://pngimg.com/d/industrial_worker_PNG11414.png" alt="construction worker" />
         </Box>
       </section>
 
-      <section id="catalogs" className="sections" ref={(el) => (sectionsRef.current[1] = el)}>
+      <Box
+        component={"section"}
+        sx={{ paddingX: { xs: "0px", sm: "20px", lg: "0px" } }}
+        id="catalogs"
+        className="sections"
+        ref={(el) => (sectionsRef.current[1] = el)}>
         <Filters handleFilter={handleFilter} />
         <Catalog data={data} filter={filter} handleOpen={handleOpen} />
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
-      </section>
+      </Box>
 
       <Box
         component={"section"}

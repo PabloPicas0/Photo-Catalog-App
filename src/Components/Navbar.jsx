@@ -22,7 +22,7 @@ let didInit = false;
 const Navbar = (props) => {
   const { sideNavRef } = props;
 
-  const [openNav, setOpenNav] = useState(false);
+  const [openMobileNav, setOpenMobileNav] = useState(false);
 
   const openMobileNavigation = useRef(null);
   const closeMobileNavigation = useRef(null);
@@ -47,11 +47,11 @@ const Navbar = (props) => {
       closeMobileNavigation.current.style.left = `${left}px`;
     }
 
-    setOpenNav(true);
+    setOpenMobileNav(true);
   };
 
   const handleCloseNav = () => {
-    setOpenNav(false);
+    setOpenMobileNav(false);
   };
 
   return (
@@ -89,7 +89,7 @@ const Navbar = (props) => {
             <MenuOutlined />
           </IconButton>
 
-          <Dialog id="nav-menu" fullScreen keepMounted open={openNav} onClose={handleCloseNav}>
+          <Dialog id="nav-menu" fullScreen keepMounted open={openMobileNav} onClose={handleCloseNav}>
             <Box sx={navigationContainer}>
               <IconButton
                 ref={closeMobileNavigation}
