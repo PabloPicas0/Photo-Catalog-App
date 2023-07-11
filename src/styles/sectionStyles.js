@@ -10,7 +10,7 @@ export const aboutTitle = {
   fontWeight: 700,
   marginTop: "20px",
   marginBottom: "10px",
-  textAlign: "center"
+  textAlign: "center",
 };
 
 export const aboutDescripton = {
@@ -20,10 +20,11 @@ export const aboutDescripton = {
   margin: 0,
 };
 
-
 export const contactSection = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  gap: "30px"
+  gap: { xs: "80px", md: "30px" },
+  padding: "60px 20px",
+  flexDirection: { xs: "column", md: "row" },
 };

@@ -116,9 +116,9 @@ function App() {
         ref={(el) => (sectionsRef.current[0] = el)}>
         <About />
 
-        <picture>
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
           <img src="https://pngimg.com/d/industrial_worker_PNG11414.png" alt="construction worker" />
-        </picture>
+        </Box>
       </section>
 
       <section id="catalogs" className="sections" ref={(el) => (sectionsRef.current[1] = el)}>
@@ -127,10 +127,11 @@ function App() {
         <CatalogModal openModal={openModal} handleClose={handleClose} modal={modal} />
       </section>
 
-      <section
+      <Box
+        component={"section"}
         id="contact"
         className="sections"
-        style={contactSection}
+        sx={contactSection}
         ref={(el) => (sectionsRef.current[2] = el)}>
         <ContactCard
           title={"E-mail"}
@@ -158,7 +159,7 @@ function App() {
           description={<Typography>+1 555 000-000</Typography>}
           icon={<Phone sx={{ color: "black" }} fontSize="large" />}
         />
-      </section>
+      </Box>
     </>
   );
 }
