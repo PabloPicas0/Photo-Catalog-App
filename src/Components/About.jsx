@@ -30,7 +30,7 @@ const About = () => {
         <AccordionSummary
           expandIcon={<ExpandMoreSharp sx={{ color: "white" }} />}
           aria-controls="OUR STORY-content"
-          id="OUR STORY-header">
+          id="our-story-header">
           <Typography>OUR STORY - FROM THE BEGINNING TO THE PRESENT</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ textAlign: "justify" }}>
@@ -61,7 +61,7 @@ const About = () => {
         <AccordionSummary
           expandIcon={<ExpandMoreSharp sx={{ color: "white" }} />}
           aria-controls="OUR STORY-content"
-          id="OUR STORY-header">
+          id="our-mission-header">
           <Typography>OUR MISSION - WHAT'S OUR MAIN GOAL PURPOSE</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ textAlign: "justify" }}>
@@ -93,7 +93,7 @@ const About = () => {
         <AccordionSummary
           expandIcon={<ExpandMoreSharp sx={{ color: "white" }} />}
           aria-controls="OUR STORY-content"
-          id="OUR STORY-header">
+          id="our-vision-header">
           <Typography>OUR VISION - WHERE DO WE SEE OURSELVES IN THE FUTURE</Typography>
         </AccordionSummary>
         <AccordionDetails sx={{ textAlign: "justify" }}>

@@ -23,10 +23,16 @@ const Catalog = (props) => {
 
   return (
     <div className="carousel-wrapper">
-      <button onClick={goToPrevious} className="slider-left-arrow slider-arrow">
+      <button
+        onClick={goToPrevious}
+        className="slider-left-arrow slider-arrow"
+        aria-label="move catalogs to left">
         <ChevronLeftSharp fontSize="large" className="slider-left-arrow-icon" />
       </button>
-      <button onClick={goToNext} className="slider-right-arrow slider-arrow">
+      <button
+        onClick={goToNext}
+        className="slider-right-arrow slider-arrow"
+        aria-label="move catalogs to right">
         <ChevronRightSharp fontSize="large" className="slider-right-arrow-icon" />
       </button>
 
